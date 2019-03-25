@@ -1,17 +1,22 @@
 package com.egecius.egisbabylontechtest.postslist
 
+import com.egecius.egisbabylontechtest.InteractorSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Consumer
 
-class ListActivityPresenter(private val getPostsInteractor: GetPostsInteractor) {
+class ListActivityPresenter(
+    private val getPostsInteractor: GetPostsInteractor,
+    private val schedulers: InteractorSchedulers
+) {
 
     private val compositeDisposable = CompositeDisposable()
 
     fun startPresenting(view: View) {
         val disposable = getPostsInteractor.getPosts()
-            .subscribe(Consumer {
+            .subscribeOn(schedulers.getExecutionsScheduler())
+            .observeOn(schedulers.getPostExecutionScheduler())
+            .subscribe({
                 view.showPosts(it)
-            }, Consumer {
+            }, {
                 view.showError()
             })
 

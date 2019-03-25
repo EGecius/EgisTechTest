@@ -1,5 +1,6 @@
 package com.egecius.egisbabylontechtest.di
 
+import com.egecius.egisbabylontechtest.InteractorSchedulers
 import com.egecius.egisbabylontechtest.postslist.*
 import dagger.Module
 import dagger.Provides
@@ -8,8 +9,11 @@ import dagger.Provides
 class ListActivityModule {
 
     @Provides
-    fun provideListActivityPresenter(getPostsInteractor: GetPostsInteractor): ListActivityPresenter {
-        return ListActivityPresenter(getPostsInteractor)
+    fun provideListActivityPresenter(
+        getPostsInteractor: GetPostsInteractor,
+        interactorSchedulers: InteractorSchedulers
+    ): ListActivityPresenter {
+        return ListActivityPresenter(getPostsInteractor, interactorSchedulers)
     }
 
     @Provides
@@ -25,6 +29,12 @@ class ListActivityModule {
     @Provides
     fun providesPostsService() : PostsService {
         return PostsRetrofitAdapter().setupRetrofit()
+    }
+
+    // TODO: 25/03/2019 move this to application module
+    @Provides
+    fun provideInteractorSchedulers() : InteractorSchedulers {
+        return AndroidInteractorSchedulers()
     }
 
 }

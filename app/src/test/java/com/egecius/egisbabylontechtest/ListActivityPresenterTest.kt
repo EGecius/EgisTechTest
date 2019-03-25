@@ -24,14 +24,12 @@ class ListActivityPresenterTest {
     lateinit var mSut: ListActivityPresenter
 
     private val posts: List<Post> = listOf(
-        Post(
-            "title 1"
-        )
+        Post("title 1")
     )
 
     @Before
     fun setUp() {
-        mSut = ListActivityPresenter(getPostsInteractor)
+        mSut = ListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
     }
 
     @Test
