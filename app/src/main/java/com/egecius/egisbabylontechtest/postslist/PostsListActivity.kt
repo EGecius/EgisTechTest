@@ -7,13 +7,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.di.ListActivityModule
+import com.egecius.egisbabylontechtest.postdetail.PostDetailActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
 class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
 
-    private val listActivityAdapter = ListActivityAdapter()
+    private val listActivityAdapter = ListActivityAdapter(object : ListActivityAdapter.OnClickListener {
+        override fun onClick(post: Post) {
+            PostDetailActivity.start(this@PostsListActivity, post)
+        }
+    })
 
     @Inject
     lateinit var presenter: ListActivityPresenter

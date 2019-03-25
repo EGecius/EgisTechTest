@@ -3,14 +3,14 @@ package com.egecius.egisbabylontechtest.postslist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.egecius.egisbabylontechtest.R
 
-class ListActivityAdapter : RecyclerView.Adapter<ListActivityAdapter.PostViewHolder>() {
+class ListActivityAdapter(private val onClickListener: OnClickListener) :
+    RecyclerView.Adapter<ListActivityAdapter.PostViewHolder>() {
 
-    private var postList : List<Post> = emptyList()
+    private var postList: List<Post> = emptyList()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): PostViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.post_list_item, viewGroup, false)
@@ -22,7 +22,12 @@ class ListActivityAdapter : RecyclerView.Adapter<ListActivityAdapter.PostViewHol
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, i: Int) {
-        holder.title.text = postList[i].title
+        val post = postList[i]
+
+        holder.cardView.setOnClickListener {
+            onClickListener.onClick(post)
+        }
+        holder.title.text = post.title
     }
 
     fun setData(data: List<Post>) {
@@ -33,7 +38,10 @@ class ListActivityAdapter : RecyclerView.Adapter<ListActivityAdapter.PostViewHol
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var cardView: View = itemView.findViewById(R.id.card_view)
         var title: TextView = itemView.findViewById(R.id.title)
-        var image: ImageView = itemView.findViewById(R.id.image)
+    }
+
+    interface OnClickListener {
+        fun onClick(post: Post)
     }
 
 }
