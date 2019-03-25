@@ -23,5 +23,7 @@
 
         </activity>
 
+        <activity android:name=".postdetail.PostDetailActivity"/>
+
     </application>
 </manifest>

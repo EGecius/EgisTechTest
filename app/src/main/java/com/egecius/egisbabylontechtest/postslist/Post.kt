@@ -1,3 +1,5 @@
 package com.egecius.egisbabylontechtest.postslist
 
-data class Post(val title: String)
+import java.io.Serializable
+
+data class Post(val title: String) : Serializable
