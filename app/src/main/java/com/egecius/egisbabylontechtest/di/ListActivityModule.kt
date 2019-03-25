@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest.di
 
-import com.egecius.egisbabylontechtest.ListActivityPresenter
+import com.egecius.egisbabylontechtest.*
 import dagger.Module
 import dagger.Provides
 
@@ -8,8 +8,23 @@ import dagger.Provides
 class ListActivityModule {
 
     @Provides
-    fun provideListActivityPresenter(): ListActivityPresenter {
-        return ListActivityPresenter()
+    fun provideListActivityPresenter(getPostsInteractor: GetPostsInteractor): ListActivityPresenter {
+        return ListActivityPresenter(getPostsInteractor)
+    }
+
+    @Provides
+    fun provideGetPostsInteractor(postsRepository: PostsRepository): GetPostsInteractor {
+        return GetPostsInteractor(postsRepository)
+    }
+
+    @Provides
+    fun providePostsRepository(postsService: PostsService): PostsRepository {
+        return NetworkRepository(postsService)
+    }
+
+    @Provides
+    fun providesPostsService() : PostsService {
+        return PostsRetrofitAdapter().setupRetrofit()
     }
 
 }

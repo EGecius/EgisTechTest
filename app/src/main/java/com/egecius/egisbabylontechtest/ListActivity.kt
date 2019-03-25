@@ -12,10 +12,10 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
 
     @Inject
-    lateinit var listActivityPresenter: ListActivityPresenter
+    lateinit var presenter: ListActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +49,16 @@ class ListActivity : AppCompatActivity() {
             }, Consumer {
                 Log.w("Eg:ListActivity:35", "setupRecycler it: $it")
             })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter.startPresenting(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.stopPresenting()
     }
 
 }
