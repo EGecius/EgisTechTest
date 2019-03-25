@@ -11,6 +11,10 @@ class ListActivityPresenter(
     private val compositeDisposable = CompositeDisposable()
 
     fun startPresenting(view: View) {
+        showPosts(view)
+    }
+
+    private fun showPosts(view: View) {
         val disposable = getPostsInteractor.getPosts()
             .subscribeOn(schedulers.getExecutionsScheduler())
             .observeOn(schedulers.getPostExecutionScheduler())
@@ -25,6 +29,10 @@ class ListActivityPresenter(
 
     fun stopPresenting() {
         compositeDisposable.clear()
+    }
+
+    fun retryFetching(view: View) {
+        showPosts(view)
     }
 
     interface View {

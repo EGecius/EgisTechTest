@@ -33,22 +33,35 @@ class ListActivityPresenterTest {
     }
 
     @Test
-    fun showsPosts() {
-        given(getPostsInteractor.getPosts()).willReturn(Single.just(posts))
+    fun `shows posts`() {
+        givenPostsWillLoadSuccessfully()
 
         mSut.startPresenting(view)
 
         verify(view).showPosts(posts)
     }
 
+    private fun givenPostsWillLoadSuccessfully() {
+        given(getPostsInteractor.getPosts()).willReturn(Single.just(posts))
+    }
+
 
     @Test
-    fun handlesError() {
+    fun `handles error`() {
         given(getPostsInteractor.getPosts()).willReturn(Single.error(Exception()))
 
         mSut.startPresenting(view)
 
         verify(view).showError()
+    }
+
+    @Test
+    fun `retries fetching`() {
+        givenPostsWillLoadSuccessfully()
+
+        mSut.retryFetching(view)
+
+        verify(view).showPosts(posts)
     }
 
 }
