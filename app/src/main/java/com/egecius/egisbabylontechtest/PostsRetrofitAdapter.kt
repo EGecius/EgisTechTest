@@ -1,5 +1,6 @@
 package com.egecius.egisbabylontechtest
 
+import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -32,11 +33,5 @@ class PostsRetrofitAdapter {
 interface PostsService {
 
     @GET("posts")
-    fun getPosts()
-
-    @GET("users")
-    fun getUsers()
-
-    @GET("comments")
-    fun getComments()
+    fun getPosts() : Single<List<Post>>
 }

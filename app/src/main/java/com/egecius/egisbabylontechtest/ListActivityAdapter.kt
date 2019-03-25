@@ -26,6 +26,7 @@ class ListActivityAdapter : RecyclerView.Adapter<ListActivityAdapter.PostViewHol
 
     fun setData(data: List<Post>) {
         postList = data
+        notifyDataSetChanged()
     }
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
