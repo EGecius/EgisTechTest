@@ -4,18 +4,32 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egecius.egisbabylontechtest.di.DaggerListActivityComponent
+import com.egecius.egisbabylontechtest.di.ListActivityModule
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
+import javax.inject.Inject
 
 class ListActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var listActivityPresenter: ListActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        injectDependencies()
 
         setupRecycler()
+    }
+
+    private fun injectDependencies() {
+        DaggerListActivityComponent.builder()
+            .listActivityModule(ListActivityModule())
+            .build()
+            .injectInto(this)
     }
 
     private fun setupRecycler() {
