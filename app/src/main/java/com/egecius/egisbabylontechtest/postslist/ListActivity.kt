@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.di.ListActivityModule
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
@@ -50,7 +51,7 @@ class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
     }
 
     override fun showError() {
-        TODO("not implemented")
+        Snackbar.make(parent_layout, getString(R.string.loading_error), Snackbar.LENGTH_INDEFINITE).show()
     }
 
 }

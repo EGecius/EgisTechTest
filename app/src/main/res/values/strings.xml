@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EgisBabylonTechTest</string>
+    <string name="loading_error">Loading error</string>
 </resources>
