@@ -3,8 +3,8 @@ package com.egecius.egisbabylontechtest.postslist
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egecius.egisbabylontechtest.MyApplication
 import com.egecius.egisbabylontechtest.R
-import com.egecius.egisbabylontechtest.di.DaggerListActivityComponent
 import com.egecius.egisbabylontechtest.di.ListActivityModule
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
@@ -25,9 +25,8 @@ class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
     }
 
     private fun injectDependencies() {
-        DaggerListActivityComponent.builder()
-            .listActivityModule(ListActivityModule())
-            .build()
+        val myApplication = application as MyApplication
+        myApplication.applicationComponent.plus(ListActivityModule())
             .injectInto(this)
     }
 

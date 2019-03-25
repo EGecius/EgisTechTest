@@ -1,9 +1,9 @@
 package com.egecius.egisbabylontechtest.di
 
 import com.egecius.egisbabylontechtest.postslist.ListActivity
-import dagger.Component
+import dagger.Subcomponent
 
-@Component(modules = [ListActivityModule::class])
+@Subcomponent(modules = [ListActivityModule::class])
 interface ListActivityComponent {
 
     fun injectInto(listActivity: ListActivity)

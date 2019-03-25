@@ -31,10 +31,4 @@ class ListActivityModule {
         return PostsRetrofitAdapter().setupRetrofit()
     }
 
-    // TODO: 25/03/2019 move this to application module
-    @Provides
-    fun provideInteractorSchedulers() : InteractorSchedulers {
-        return AndroidInteractorSchedulers()
-    }
-
 }
