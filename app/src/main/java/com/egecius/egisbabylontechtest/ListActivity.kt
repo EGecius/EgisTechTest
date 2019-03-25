@@ -16,7 +16,11 @@ class ListActivity : AppCompatActivity() {
 
     private fun setupRecycler() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ListActivityAdapter()
+        val listActivityAdapter = ListActivityAdapter()
+        recyclerView.adapter = listActivityAdapter
+
+        // TODO: 25/03/2019 dummy data to be removed later
+        listActivityAdapter.setData(listOf(Post("post 1"), Post("post 2"), Post("post 3")))
     }
 
 }
