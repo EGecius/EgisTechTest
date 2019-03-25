@@ -1,18 +1,16 @@
 package com.egecius.egisbabylontechtest
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.di.DaggerListActivityComponent
 import com.egecius.egisbabylontechtest.di.ListActivityModule
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
 class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
+
+    private val listActivityAdapter = ListActivityAdapter()
 
     @Inject
     lateinit var presenter: ListActivityPresenter
@@ -34,21 +32,7 @@ class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
 
     private fun setupRecycler() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val listAdapter = ListActivityAdapter()
-        recyclerView.adapter = listAdapter
-
-        val setupRetrofit: PostsService = PostsRetrofitAdapter().setupRetrofit()
-
-        // TODO: 25/03/2019 - temporary - fetch posts data
-        setupRetrofit.getPosts()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(Consumer {
-                listAdapter.setData(it)
-                Log.d("Eg:ListActivity:35", "setupRecycler it: $it")
-            }, Consumer {
-                Log.w("Eg:ListActivity:35", "setupRecycler it: $it")
-            })
+        recyclerView.adapter = listActivityAdapter
     }
 
     override fun onStart() {
@@ -59,6 +43,14 @@ class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
     override fun onStop() {
         super.onStop()
         presenter.stopPresenting()
+    }
+
+    override fun showPosts(posts: List<Post>) {
+        listActivityAdapter.setData(posts)
+    }
+
+    override fun showError() {
+        TODO("not implemented")
     }
 
 }

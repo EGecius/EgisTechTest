@@ -10,7 +10,9 @@ class ListActivityPresenter(private val getPostsInteractor: GetPostsInteractor) 
     fun startPresenting(view: View) {
         val disposable = getPostsInteractor.getPosts()
             .subscribe(Consumer {
+                view.showPosts(it)
             }, Consumer {
+                view.showError()
             })
 
         compositeDisposable.add(disposable)
@@ -21,6 +23,7 @@ class ListActivityPresenter(private val getPostsInteractor: GetPostsInteractor) 
     }
 
     interface View {
-
+        fun showPosts(posts: List<Post>)
+        fun showError()
     }
 }

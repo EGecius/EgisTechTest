@@ -2,8 +2,8 @@ package com.egecius.egisbabylontechtest
 
 import io.reactivex.Single
 
-class GetPostsInteractor(private val postsRepository : PostsRepository) {
-    fun getPosts() : Single<List<Post>> {
+open class GetPostsInteractor(private val postsRepository : PostsRepository) {
+    open fun getPosts() : Single<List<Post>> {
         return postsRepository.getPosts()
     }
 }
