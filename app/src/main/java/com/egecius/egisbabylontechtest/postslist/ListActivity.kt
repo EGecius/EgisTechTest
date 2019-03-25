@@ -1,6 +1,7 @@
 package com.egecius.egisbabylontechtest.postslist
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.MyApplication
@@ -47,15 +48,23 @@ class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
     }
 
     override fun showPosts(posts: List<Post>) {
+        hideProgressBar()
         listActivityAdapter.setData(posts)
+    }
+
+    private fun hideProgressBar() {
+        progressBar.visibility = View.GONE
     }
 
     override fun showError() {
         Snackbar.make(parent_layout, getString(R.string.loading_error), Snackbar.LENGTH_INDEFINITE)
             .setAction(getString(R.string.retry)) {
                 presenter.retryFetching(this)
+                progressBar.visibility = View.VISIBLE
             }
             .show()
+
+        hideProgressBar()
     }
 
 }
