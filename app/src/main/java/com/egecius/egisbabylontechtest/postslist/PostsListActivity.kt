@@ -19,8 +19,8 @@ class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
     lateinit var navigator: PostsNavigator
 
     private val listActivityAdapter = ListActivityAdapter(object : ListActivityAdapter.OnClickListener {
-        override fun onClick(post: Post) {
-            navigator.showPostDetail(post)
+        override fun onClick(postClick: PostClick) {
+            navigator.showPostDetail(postClick)
         }
     })
 

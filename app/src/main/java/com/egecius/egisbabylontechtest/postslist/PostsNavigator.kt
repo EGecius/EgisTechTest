@@ -5,8 +5,8 @@ import com.egecius.egisbabylontechtest.postdetail.PostDetailActivity
 
 class PostsNavigator(private val originActivity: Activity) {
 
-    fun showPostDetail(post: Post) {
-        PostDetailActivity.start(originActivity, post)
+    fun showPostDetail(postClick: PostClick) {
+        PostDetailActivity.start(originActivity, postClick)
     }
 
 }

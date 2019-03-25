@@ -25,7 +25,7 @@ class ListActivityAdapter(private val onClickListener: OnClickListener) :
         val post = postList[i]
 
         holder.cardView.setOnClickListener {
-            onClickListener.onClick(post)
+            onClickListener.onClick(PostClick(post, holder.title))
         }
         holder.title.text = post.title
     }
@@ -41,7 +41,7 @@ class ListActivityAdapter(private val onClickListener: OnClickListener) :
     }
 
     interface OnClickListener {
-        fun onClick(post: Post)
+        fun onClick(postClick: PostClick)
     }
 
 }
