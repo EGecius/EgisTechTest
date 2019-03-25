@@ -22,13 +22,21 @@ class ListActivityModule {
     }
 
     @Provides
-    fun providePostsRepository(postsService: PostsService): PostsRepository {
-        return NetworkRepository(postsService)
+    fun providePostsRepository(
+        postsService: PostsService,
+        mapper: PostMapper
+    ): PostsRepository {
+        return NetworkRepository(postsService, mapper)
     }
 
     @Provides
     fun providesPostsService() : PostsService {
         return PostsRetrofitAdapter().setupRetrofit()
+    }
+
+    @Provides
+    fun providesPostMapper(): PostMapper {
+        return PostMapper()
     }
 
 }

@@ -33,5 +33,5 @@ class PostsRetrofitAdapter {
 interface PostsService {
 
     @GET("posts")
-    fun getPosts() : Single<List<Post>>
+    fun getPosts() : Single<List<PostJson>>
 }
