@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest.di
 
-import com.egecius.egisbabylontechtest.*
+import com.egecius.egisbabylontechtest.postslist.*
 import dagger.Module
 import dagger.Provides
 

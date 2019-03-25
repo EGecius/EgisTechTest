@@ -1,5 +1,8 @@
 package com.egecius.egisbabylontechtest
 
+import com.egecius.egisbabylontechtest.postslist.GetPostsInteractor
+import com.egecius.egisbabylontechtest.postslist.ListActivityPresenter
+import com.egecius.egisbabylontechtest.postslist.Post
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
@@ -20,7 +23,11 @@ class ListActivityPresenterTest {
 
     lateinit var mSut: ListActivityPresenter
 
-    private val posts: List<Post> = listOf(Post("title 1"))
+    private val posts: List<Post> = listOf(
+        Post(
+            "title 1"
+        )
+    )
 
     @Before
     fun setUp() {

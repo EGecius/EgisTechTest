@@ -1,8 +1,9 @@
-package com.egecius.egisbabylontechtest
+package com.egecius.egisbabylontechtest.postslist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.di.DaggerListActivityComponent
 import com.egecius.egisbabylontechtest.di.ListActivityModule
 import kotlinx.android.synthetic.main.activity_list.*

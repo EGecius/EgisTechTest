@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest
+package com.egecius.egisbabylontechtest.postslist
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
