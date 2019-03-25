@@ -13,7 +13,7 @@
                  android:usesCleartextTraffic="true"
                  android:theme="@style/AppTheme">
 
-        <activity android:name=".postslist.ListActivity">
+        <activity android:name=".postslist.PostsListActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

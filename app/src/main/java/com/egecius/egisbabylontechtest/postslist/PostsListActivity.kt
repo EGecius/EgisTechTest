@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
-class ListActivity : AppCompatActivity(), ListActivityPresenter.View {
+class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
 
     private val listActivityAdapter = ListActivityAdapter()
 
