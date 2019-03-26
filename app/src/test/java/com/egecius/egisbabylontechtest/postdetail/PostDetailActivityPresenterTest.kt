@@ -42,6 +42,9 @@ class PostDetailActivityPresenterTest {
 
     @Test
     fun `shows post on start`() {
+        givenGettingUserWillSucceed()
+        givenGettingCommentsWillSucceed()
+
         mSut.startPresenting(view, post)
 
         verify(view).showPost(post)
@@ -50,6 +53,7 @@ class PostDetailActivityPresenterTest {
     @Test
     fun `show user name`() {
         givenGettingUserWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         mSut.startPresenting(view, post)
 
@@ -63,6 +67,7 @@ class PostDetailActivityPresenterTest {
     @Test
     fun `handles error`() {
         givenGettingUserWillFail()
+        givenGettingCommentsWillSucceed()
 
         mSut.startPresenting(view, post)
 
@@ -76,6 +81,7 @@ class PostDetailActivityPresenterTest {
     @Test
     fun `retries loading user`() {
         givenGettingUserWillSucceed()
+        givenGettingCommentsWillSucceed()
         mSut.startPresenting(view, post)
         clearInvocations(view)
 
@@ -86,7 +92,7 @@ class PostDetailActivityPresenterTest {
 
     @Test
     fun `shows number of comments`() {
-        givenNumberOfCommentsIs3()
+        givenGettingCommentsWillSucceed()
         givenGettingUserWillSucceed()
 
         mSut.startPresenting(view, post)
@@ -94,7 +100,7 @@ class PostDetailActivityPresenterTest {
         verify(view).showNumberOfComments(3)
     }
 
-    private fun givenNumberOfCommentsIs3() {
+    private fun givenGettingCommentsWillSucceed() {
         given(getNumberOfCommentsInteractor.getNumberOfComments(1)).willReturn(Single.just(3))
     }
 
@@ -116,7 +122,7 @@ class PostDetailActivityPresenterTest {
     @Test
     fun `retries loading comments`() {
         givenGettingUserWillSucceed()
-        givenNumberOfCommentsIs3()
+        givenGettingCommentsWillSucceed()
         mSut.startPresenting(view, post)
         clearInvocations(view)
 
