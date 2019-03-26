@@ -1,16 +1,18 @@
-package com.egecius.egisbabylontechtest
+package com.egecius.egisbabylontechtest.features.showpostslist.di
 
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class TestInteractorSchedulers : InteractorSchedulers {
+class AndroidInteractorSchedulers : InteractorSchedulers {
 
     override fun getExecutionsScheduler(): Scheduler {
-        return Schedulers.trampoline()
+        return Schedulers.io()
     }
 
     override fun getPostExecutionScheduler(): Scheduler {
-        return Schedulers.trampoline()
+        return AndroidSchedulers.mainThread()
     }
+
 }
