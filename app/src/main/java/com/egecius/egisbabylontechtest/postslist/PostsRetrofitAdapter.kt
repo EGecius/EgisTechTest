@@ -1,5 +1,6 @@
 package com.egecius.egisbabylontechtest.postslist
 
+import com.egecius.egisbabylontechtest.postdetail.User
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,6 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 class PostsRetrofitAdapter {
 
@@ -33,5 +35,9 @@ class PostsRetrofitAdapter {
 interface PostsService {
 
     @GET("posts")
-    fun getPosts() : Single<List<PostJson>>
+    fun getPosts(): Single<List<PostJson>>
+
+
+    @GET("user/{id}")
+    fun getUser(@Path("id") userId: Int): Single<User>
 }
