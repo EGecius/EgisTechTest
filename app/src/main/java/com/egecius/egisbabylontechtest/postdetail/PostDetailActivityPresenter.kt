@@ -1,8 +1,14 @@
 package com.egecius.egisbabylontechtest.postdetail
 
+import com.egecius.egisbabylontechtest.postslist.Post
+
 class PostDetailActivityPresenter {
-    fun startPresenting(view: View) {
-        TODO("not implemented")
+
+    fun startPresenting(
+        view: View,
+        post: Post
+    ) {
+        view.showPost(post)
     }
 
     fun stopPresenting() {
@@ -11,5 +17,6 @@ class PostDetailActivityPresenter {
 
     interface View{
 
+        fun showPost(post: Post)
     }
 }

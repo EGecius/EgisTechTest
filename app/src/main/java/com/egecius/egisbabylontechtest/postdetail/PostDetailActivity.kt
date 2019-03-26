@@ -22,11 +22,6 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_detail)
         injectDependencies()
-
-        val post = intent.getSerializableExtra(KEY_POS) as Post
-
-        postTitleView.text = post.title
-        postBodyView.text = post.body
     }
 
     private fun injectDependencies() {
@@ -37,12 +32,18 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
 
     override fun onStart() {
         super.onStart()
-        presenter.startPresenting(this)
+        val post = intent.getSerializableExtra(KEY_POS) as Post
+        presenter.startPresenting(this, post)
     }
 
     override fun onStop() {
         super.onStop()
         presenter.stopPresenting()
+    }
+
+    override fun showPost(post: Post) {
+        postTitleView.text = post.title
+        postBodyView.text = post.body
     }
 
     companion object {
