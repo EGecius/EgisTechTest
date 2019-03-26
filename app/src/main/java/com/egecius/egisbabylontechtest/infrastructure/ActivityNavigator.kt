@@ -1,9 +1,10 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.infrastructure
 
 import android.app.Activity
 import com.egecius.egisbabylontechtest.features.showpostdetail.PostDetailActivity
+import com.egecius.egisbabylontechtest.features.showpostslist.PostClick
 
-class PostsNavigator(private val originActivity: Activity) {
+class ActivityNavigator(private val originActivity: Activity) {
 
     fun showPostDetail(postClick: PostClick) {
         PostDetailActivity.start(originActivity, postClick)

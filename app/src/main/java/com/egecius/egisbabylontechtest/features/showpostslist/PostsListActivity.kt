@@ -8,6 +8,7 @@ import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostslist.di.ListActivityModule
 import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.infrastructure.ActivityNavigator
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
@@ -17,7 +18,7 @@ class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
     @Inject
     lateinit var presenter: ListActivityPresenter
     @Inject
-    lateinit var navigator: PostsNavigator
+    lateinit var navigator: ActivityNavigator
 
     private val listActivityAdapter = ListActivityAdapter(object : ListActivityAdapter.OnClickListener {
         override fun onClick(postClick: PostClick) {
