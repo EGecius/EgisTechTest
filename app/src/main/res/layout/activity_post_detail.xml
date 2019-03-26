@@ -18,8 +18,8 @@
 
     <ImageView
             android:id="@+id/userImageView"
-            android:layout_width="180sp"
-            android:layout_height="180sp"
+            android:layout_width="@dimen/user_image_width_height"
+            android:layout_height="@dimen/user_image_width_height"
             tools:src="@drawable/ic_launcher_background"
             android:contentDescription="@string/user_image"/>
 
