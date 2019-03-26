@@ -6,5 +6,5 @@ import dagger.Subcomponent
 @Subcomponent(modules = [PostDetailModule::class])
 interface PostDetailComponent {
 
-    fun injetInto(postDetailActivity: PostDetailActivity)
+    fun injectInto(postDetailActivity: PostDetailActivity)
 }

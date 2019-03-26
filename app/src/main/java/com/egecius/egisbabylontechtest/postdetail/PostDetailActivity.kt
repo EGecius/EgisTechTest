@@ -30,7 +30,7 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
     private fun injectDependencies() {
         val myApplication = application as MyApplication
         myApplication.applicationComponent.plus(PostDetailModule())
-            .injetInto(this)
+            .injectInto(this)
     }
 
     override fun onStart() {

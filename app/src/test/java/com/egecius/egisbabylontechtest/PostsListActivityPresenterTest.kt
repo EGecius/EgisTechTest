@@ -16,7 +16,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class PostsListActivityPresenterTest {
 
-    lateinit var sut: ListActivityPresenter
+    private lateinit var sut: ListActivityPresenter
 
     @Mock
     lateinit var view: ListActivityPresenter.View
