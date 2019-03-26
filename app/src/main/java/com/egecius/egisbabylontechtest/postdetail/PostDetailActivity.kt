@@ -46,7 +46,7 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
     }
 
     override fun showNumberOfComments(no: Int) {
-        TODO("not implemented")
+        numberOfCommentsView.text = getString(R.string.no_of_comments, no)
     }
 
     override fun showCommentLoadingError() {

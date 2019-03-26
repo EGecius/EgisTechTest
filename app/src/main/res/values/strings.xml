@@ -2,4 +2,5 @@
     <string name="app_name">EgisBabylonTechTest</string>
     <string name="loading_error">Loading error</string>
     <string name="retry">Retry</string>
+    <string name="no_of_comments">No of comments: %1$d</string>
 </resources>

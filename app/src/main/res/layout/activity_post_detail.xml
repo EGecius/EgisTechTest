@@ -4,7 +4,7 @@
               android:id="@+id/parentLayout"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:gravity="center"
+              android:gravity="center_horizontal"
               android:layout_height="match_parent">
 
     <TextView
@@ -20,12 +20,21 @@
             android:id="@+id/userNameView"
             android:textSize="@dimen/post_detail_user_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:text="User name"/>
 
     <TextView
             android:id="@+id/postBodyView"
             android:textSize="@dimen/post_detail_body"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:text="Post body"/>
+
+    <TextView
+            android:id="@+id/numberOfCommentsView"
+            android:textSize="@dimen/post_detail_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Number of comments: 6"/>
 
 </LinearLayout>
