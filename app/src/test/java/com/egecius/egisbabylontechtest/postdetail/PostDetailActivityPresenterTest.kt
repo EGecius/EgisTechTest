@@ -5,8 +5,8 @@ import com.egecius.egisbabylontechtest.postdetail.comments.GetNumberOfCommentsIn
 import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.postdetail.user.User
 import com.egecius.egisbabylontechtest.postslist.Post
-import com.nhaarman.mockitokotlin2.clearInvocations
 import com.nhaarman.mockitokotlin2.given
+import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
 import org.junit.Before
@@ -83,11 +83,11 @@ class PostDetailActivityPresenterTest {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
         mSut.startPresenting(view, post)
-        clearInvocations(view)
 
         mSut.retryShowingUser()
 
-        verify(view).showUserName(userName)
+        // called twice - 1st one from startPresenting()
+        verify(view, times(2)).showUserName(userName)
     }
 
     @Test
@@ -124,11 +124,11 @@ class PostDetailActivityPresenterTest {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
         mSut.startPresenting(view, post)
-        clearInvocations(view)
 
         mSut.retryShowingComments()
 
-        verify(view).showNumberOfComments(3)
+        // called twice - 1st one from startPresenting()
+        verify(view, times(2)).showNumberOfComments(3)
     }
 
 }

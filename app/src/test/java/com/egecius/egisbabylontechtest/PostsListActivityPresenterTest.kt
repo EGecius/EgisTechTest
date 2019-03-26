@@ -4,6 +4,7 @@ import com.egecius.egisbabylontechtest.postslist.GetPostsInteractor
 import com.egecius.egisbabylontechtest.postslist.ListActivityPresenter
 import com.egecius.egisbabylontechtest.postslist.Post
 import com.nhaarman.mockitokotlin2.given
+import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
 import org.junit.Before
@@ -58,10 +59,12 @@ class PostsListActivityPresenterTest {
     @Test
     fun `retries fetching`() {
         givenPostsWillLoadSuccessfully()
+        mSut.startPresenting(view)
 
         mSut.retryFetching()
 
-        verify(view).showPosts(posts)
+        // called twice - 1st one from startPresenting()
+        verify(view, times(2)).showPosts(posts)
     }
 
 }
