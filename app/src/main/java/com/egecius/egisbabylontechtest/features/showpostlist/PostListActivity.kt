@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.features.showpostlist
 
 import android.os.Bundle
 import android.view.View
@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.egecius.egisbabylontechtest.R
-import com.egecius.egisbabylontechtest.features.showpostslist.di.ListActivityModule
-import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostlist.di.ListActivityModule
+import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 import com.egecius.egisbabylontechtest.infrastructure.ActivityNavigator
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*

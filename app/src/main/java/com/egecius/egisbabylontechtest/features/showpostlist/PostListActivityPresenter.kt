@@ -1,7 +1,7 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.features.showpostlist
 
-import com.egecius.egisbabylontechtest.features.showpostslist.post.GetPostsInteractor
-import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostlist.post.GetPostsInteractor
+import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.disposables.CompositeDisposable
 

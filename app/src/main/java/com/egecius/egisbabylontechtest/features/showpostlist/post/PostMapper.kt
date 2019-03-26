@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist.post
+package com.egecius.egisbabylontechtest.features.showpostlist.post
 
 
 class PostMapper {

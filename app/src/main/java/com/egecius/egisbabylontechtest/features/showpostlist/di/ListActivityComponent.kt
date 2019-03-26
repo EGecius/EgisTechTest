@@ -1,6 +1,6 @@
-package com.egecius.egisbabylontechtest.features.showpostslist.di
+package com.egecius.egisbabylontechtest.features.showpostlist.di
 
-import com.egecius.egisbabylontechtest.features.showpostslist.PostListActivity
+import com.egecius.egisbabylontechtest.features.showpostlist.PostListActivity
 import dagger.Subcomponent
 
 @Subcomponent(modules = [ListActivityModule::class])

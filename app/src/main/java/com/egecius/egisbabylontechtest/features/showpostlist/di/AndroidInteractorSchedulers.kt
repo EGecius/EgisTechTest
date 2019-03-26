@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist.di
+package com.egecius.egisbabylontechtest.features.showpostlist.di
 
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.Scheduler

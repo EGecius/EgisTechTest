@@ -1,9 +1,9 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.features.showpostlist
 
-import com.egecius.egisbabylontechtest.features.showpostslist.post.NetworkPostsRepository
-import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
-import com.egecius.egisbabylontechtest.features.showpostslist.post.PostJson
-import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
+import com.egecius.egisbabylontechtest.features.showpostlist.post.NetworkPostsRepository
+import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostlist.post.PostJson
+import com.egecius.egisbabylontechtest.features.showpostlist.post.PostMapper
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single

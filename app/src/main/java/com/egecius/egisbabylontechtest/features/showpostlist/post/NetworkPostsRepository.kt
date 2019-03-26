@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist.post
+package com.egecius.egisbabylontechtest.features.showpostlist.post
 
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import io.reactivex.Single

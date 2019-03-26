@@ -1,11 +1,11 @@
-package com.egecius.egisbabylontechtest.features.showpostslist.di
+package com.egecius.egisbabylontechtest.features.showpostlist.di
 
 import android.app.Activity
-import com.egecius.egisbabylontechtest.features.showpostslist.PostListActivityPresenter
-import com.egecius.egisbabylontechtest.features.showpostslist.post.GetPostsInteractor
-import com.egecius.egisbabylontechtest.features.showpostslist.post.NetworkPostsRepository
-import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
-import com.egecius.egisbabylontechtest.features.showpostslist.post.PostsRepository
+import com.egecius.egisbabylontechtest.features.showpostlist.PostListActivityPresenter
+import com.egecius.egisbabylontechtest.features.showpostlist.post.GetPostsInteractor
+import com.egecius.egisbabylontechtest.features.showpostlist.post.NetworkPostsRepository
+import com.egecius.egisbabylontechtest.features.showpostlist.post.PostMapper
+import com.egecius.egisbabylontechtest.features.showpostlist.post.PostsRepository
 import com.egecius.egisbabylontechtest.infrastructure.ActivityNavigator
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService

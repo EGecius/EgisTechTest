@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.features.showpostlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.egecius.egisbabylontechtest.R
-import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 
 class PostListActivityAdapter(private val onClickListener: OnClickListener) :
     RecyclerView.Adapter<PostListActivityAdapter.PostViewHolder>() {

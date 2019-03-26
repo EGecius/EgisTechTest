@@ -9,8 +9,8 @@ import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostdetail.di.PostDetailModule
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
-import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
-import com.egecius.egisbabylontechtest.features.showpostslist.PostClick
+import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostlist.PostClick
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_post_detail.*
