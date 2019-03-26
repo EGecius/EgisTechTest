@@ -36,7 +36,7 @@ class ListActivityAdapter(private val onClickListener: OnClickListener) :
     }
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var cardView: View = itemView.findViewById(R.id.card_view)
+        var cardView: View = itemView.findViewById(R.id.cardView)
         var title: TextView = itemView.findViewById(R.id.title)
     }
 
