@@ -3,6 +3,10 @@ package com.egecius.egisbabylontechtest.features.showpostslist.di
 import android.app.Activity
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostslist.*
+import com.egecius.egisbabylontechtest.features.showpostslist.post.GetPostsInteractor
+import com.egecius.egisbabylontechtest.features.showpostslist.post.NetworkPostsRepository
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostsRepository
 import dagger.Module
 import dagger.Provides
 
@@ -32,7 +36,10 @@ class ListActivityModule(private val activity: Activity) {
         networkService: NetworkService,
         mapper: PostMapper
     ): PostsRepository {
-        return NetworkPostsRepository(networkService, mapper)
+        return NetworkPostsRepository(
+            networkService,
+            mapper
+        )
     }
 
     @Provides

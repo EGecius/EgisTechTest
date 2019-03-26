@@ -3,6 +3,7 @@ package com.egecius.egisbabylontechtest.features.showpostslist
 import com.egecius.egisbabylontechtest.BuildConfig.DEBUG
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentJson
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserJson
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostJson
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

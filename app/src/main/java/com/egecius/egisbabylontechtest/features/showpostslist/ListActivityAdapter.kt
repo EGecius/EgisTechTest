@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.egecius.egisbabylontechtest.R
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
 
 class ListActivityAdapter(private val onClickListener: OnClickListener) :
     RecyclerView.Adapter<ListActivityAdapter.PostViewHolder>() {

@@ -1,5 +1,9 @@
 package com.egecius.egisbabylontechtest.features.showpostslist
 
+import com.egecius.egisbabylontechtest.features.showpostslist.post.NetworkPostsRepository
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostJson
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single
 import org.junit.Before
@@ -23,12 +27,29 @@ class NetworkPostsRepositoryTest {
     private val title = "title"
     private val body = "body"
 
-    private val listPostsJson = listOf(PostJson(userId, postId, title, body))
-    private val listPosts = listOf(Post(postId, title, body, userId))
+    private val listPostsJson = listOf(
+        PostJson(
+            userId,
+            postId,
+            title,
+            body
+        )
+    )
+    private val listPosts = listOf(
+        Post(
+            postId,
+            title,
+            body,
+            userId
+        )
+    )
 
     @Before
     fun setUp() {
-        sut = NetworkPostsRepository(networkService, PostMapper())
+        sut = NetworkPostsRepository(
+            networkService,
+            PostMapper()
+        )
     }
 
     @Test

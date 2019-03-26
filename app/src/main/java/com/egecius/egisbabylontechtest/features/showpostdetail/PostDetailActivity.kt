@@ -9,7 +9,7 @@ import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostdetail.di.PostDetailModule
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
-import com.egecius.egisbabylontechtest.features.showpostslist.Post
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
 import com.egecius.egisbabylontechtest.features.showpostslist.PostClick
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso

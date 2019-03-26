@@ -1,5 +1,8 @@
 package com.egecius.egisbabylontechtest.features.showpostslist
 
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostJson
+import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
@@ -17,8 +20,10 @@ class PostMapperTest {
     private val postId1 = 2
     private val userId1 = 25
 
-    private val postJson0 = PostJson(userId0, postId0, title0, body0)
-    private val postJson1 = PostJson(userId1, postId1, title1, body1)
+    private val postJson0 =
+        PostJson(userId0, postId0, title0, body0)
+    private val postJson1 =
+        PostJson(userId1, postId1, title1, body1)
 
     private val listPostsJson: List<PostJson> = listOf(postJson0, postJson1)
 
@@ -26,7 +31,14 @@ class PostMapperTest {
     fun `maps to posts`() {
         val listPosts = sut.toPosts(listPostsJson)
 
-        assertThat(listPosts).containsExactly(Post(postId0, title0, body0, userId0), Post(postId1, title1, body1, userId1))
+        assertThat(listPosts).containsExactly(
+            Post(
+                postId0,
+                title0,
+                body0,
+                userId0
+            ), Post(postId1, title1, body1, userId1)
+        )
     }
 
 }

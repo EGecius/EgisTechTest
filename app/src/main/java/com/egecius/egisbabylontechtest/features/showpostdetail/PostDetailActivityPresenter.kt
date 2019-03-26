@@ -4,7 +4,7 @@ import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
-import com.egecius.egisbabylontechtest.features.showpostslist.Post
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
 import io.reactivex.disposables.CompositeDisposable
 
 class PostDetailActivityPresenter(

@@ -4,7 +4,7 @@ import com.egecius.egisbabylontechtest.TestInteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
-import com.egecius.egisbabylontechtest.features.showpostslist.Post
+import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
