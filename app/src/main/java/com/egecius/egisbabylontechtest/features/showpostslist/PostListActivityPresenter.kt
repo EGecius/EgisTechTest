@@ -5,7 +5,7 @@ import com.egecius.egisbabylontechtest.features.showpostslist.post.Post
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.disposables.CompositeDisposable
 
-class ListActivityPresenter(
+class PostListActivityPresenter(
     private val getPostsInteractor: GetPostsInteractor,
     private val schedulers: InteractorSchedulers
 ) {

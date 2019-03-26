@@ -13,14 +13,14 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
-class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
+class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
 
     @Inject
-    lateinit var presenter: ListActivityPresenter
+    lateinit var presenterPost: PostListActivityPresenter
     @Inject
     lateinit var navigator: ActivityNavigator
 
-    private val listActivityAdapter = ListActivityAdapter(object : ListActivityAdapter.OnClickListener {
+    private val listActivityAdapter = PostListActivityAdapter(object : PostListActivityAdapter.OnClickListener {
         override fun onClick(postClick: PostClick) {
             navigator.showPostDetail(postClick)
         }
@@ -47,12 +47,12 @@ class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
 
     override fun onStart() {
         super.onStart()
-        presenter.startPresenting(this)
+        presenterPost.startPresenting(this)
     }
 
     override fun onStop() {
         super.onStop()
-        presenter.stopPresenting()
+        presenterPost.stopPresenting()
     }
 
     override fun showPosts(posts: List<Post>) {
@@ -67,7 +67,7 @@ class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
     override fun showError() {
         Snackbar.make(parentLayout, getString(R.string.loading_error), Snackbar.LENGTH_INDEFINITE)
             .setAction(getString(R.string.retry)) {
-                presenter.retryFetching()
+                presenterPost.retryFetching()
                 progressBar.visibility = View.VISIBLE
             }
             .show()

@@ -14,12 +14,12 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class PostsListActivityPresenterTest {
+class PostPostListActivityPresenterTest {
 
-    private lateinit var sut: ListActivityPresenter
+    private lateinit var sut: PostListActivityPresenter
 
     @Mock
-    lateinit var view: ListActivityPresenter.View
+    lateinit var view: PostListActivityPresenter.View
 
     @Mock
     private lateinit var getPostsInteractor: GetPostsInteractor
@@ -30,7 +30,7 @@ class PostsListActivityPresenterTest {
 
     @Before
     fun setUp() {
-        sut = ListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
+        sut = PostListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
     }
 
     @Test
