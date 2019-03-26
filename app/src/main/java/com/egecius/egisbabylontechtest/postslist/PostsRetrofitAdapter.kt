@@ -1,5 +1,6 @@
 package com.egecius.egisbabylontechtest.postslist
 
+import com.egecius.egisbabylontechtest.postdetail.comments.CommentJson
 import com.egecius.egisbabylontechtest.postdetail.user.UserJson
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -40,4 +41,7 @@ interface NetworkService {
 
     @GET("users/{id}")
     fun getUser(@Path("id") userId: Int): Single<UserJson>
+
+    @GET("comments")
+    fun getComments() : Single<List<CommentJson>>
 }
