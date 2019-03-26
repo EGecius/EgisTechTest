@@ -1,7 +1,5 @@
 package com.egecius.egisbabylontechtest.infrastructure
 
-import com.egecius.egisbabylontechtest.features.showpostslist.NetworkService
-import com.egecius.egisbabylontechtest.features.showpostslist.PostsRetrofitAdapter
 import com.egecius.egisbabylontechtest.features.showpostslist.di.AndroidInteractorSchedulers
 import dagger.Module
 import dagger.Provides
@@ -16,7 +14,7 @@ class ApplicationModule {
 
     @Provides
     fun providesPostsService() : NetworkService {
-        return PostsRetrofitAdapter().setupRetrofit()
+        return RetrofitAdapter().setupRetrofit()
     }
 
 }

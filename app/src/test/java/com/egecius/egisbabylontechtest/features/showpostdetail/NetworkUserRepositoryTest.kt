@@ -4,7 +4,7 @@ import com.egecius.egisbabylontechtest.features.showpostdetail.user.NetworkUserR
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserJson
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserMapper
-import com.egecius.egisbabylontechtest.features.showpostslist.NetworkService
+import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single
 import org.junit.Before

@@ -7,6 +7,7 @@ import com.egecius.egisbabylontechtest.features.showpostslist.post.GetPostsInter
 import com.egecius.egisbabylontechtest.features.showpostslist.post.NetworkPostsRepository
 import com.egecius.egisbabylontechtest.features.showpostslist.post.PostMapper
 import com.egecius.egisbabylontechtest.features.showpostslist.post.PostsRepository
+import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import dagger.Module
 import dagger.Provides
 

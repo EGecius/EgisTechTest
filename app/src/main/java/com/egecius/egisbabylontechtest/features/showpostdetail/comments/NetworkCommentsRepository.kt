@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.comments
 
-import com.egecius.egisbabylontechtest.features.showpostslist.NetworkService
+import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import io.reactivex.Single
 
 interface CommentsRepository {

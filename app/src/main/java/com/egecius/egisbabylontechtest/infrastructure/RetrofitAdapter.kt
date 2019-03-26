@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.features.showpostslist
+package com.egecius.egisbabylontechtest.infrastructure
 
 import com.egecius.egisbabylontechtest.BuildConfig.DEBUG
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentJson
@@ -13,7 +13,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-class PostsRetrofitAdapter {
+class RetrofitAdapter {
 
     private val baseUrl = "http://jsonplaceholder.typicode.com/"
 

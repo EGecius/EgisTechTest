@@ -10,7 +10,7 @@ import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInter
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.NetworkUserRepository
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserMapper
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserRepository
-import com.egecius.egisbabylontechtest.features.showpostslist.NetworkService
+import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import dagger.Module
 import dagger.Provides
 
