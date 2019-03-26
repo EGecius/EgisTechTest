@@ -1,6 +1,5 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.di
 
-import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostdetail.PostDetailActivityPresenter
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentMapper
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentsRepository
@@ -10,6 +9,7 @@ import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInter
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.NetworkUserRepository
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserMapper
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserRepository
+import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ import dagger.Provides
 class PostDetailModule {
 
     @Provides
-    fun providesPostDetailPresenter(
+    fun providesPostDetailActivityPresenter(
         getUserInteractor: GetUserInteractor,
         getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor,
         interactorSchedulers: InteractorSchedulers

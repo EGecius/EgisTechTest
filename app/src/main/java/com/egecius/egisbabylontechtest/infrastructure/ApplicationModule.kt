@@ -13,7 +13,7 @@ class ApplicationModule {
     }
 
     @Provides
-    fun providesPostsService() : NetworkService {
+    fun providesNetworkService() : NetworkService {
         return RetrofitAdapter().setupRetrofit()
     }
 

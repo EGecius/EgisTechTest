@@ -16,7 +16,7 @@ import dagger.Provides
 class ListActivityModule(private val activity: Activity) {
 
     @Provides
-    fun provideListActivityPresenter(
+    fun providePostListActivityPresenter(
         getPostsInteractor: GetPostsInteractor,
         interactorSchedulers: InteractorSchedulers
     ): PostListActivityPresenter {
@@ -24,7 +24,7 @@ class ListActivityModule(private val activity: Activity) {
     }
 
     @Provides
-    fun providePostsNavigator(): ActivityNavigator {
+    fun provideActivityNavigator(): ActivityNavigator {
         return ActivityNavigator(activity)
     }
 
