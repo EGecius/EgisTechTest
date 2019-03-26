@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.postdetail
+package com.egecius.egisbabylontechtest.postdetail.user
 
 class UserMapper {
     fun toUser(userJson: UserJson): User {

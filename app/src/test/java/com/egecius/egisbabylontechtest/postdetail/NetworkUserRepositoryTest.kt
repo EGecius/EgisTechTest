@@ -1,5 +1,9 @@
 package com.egecius.egisbabylontechtest.postdetail
 
+import com.egecius.egisbabylontechtest.postdetail.user.NetworkUserRepository
+import com.egecius.egisbabylontechtest.postdetail.user.User
+import com.egecius.egisbabylontechtest.postdetail.user.UserJson
+import com.egecius.egisbabylontechtest.postdetail.user.UserMapper
 import com.egecius.egisbabylontechtest.postslist.NetworkService
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single
@@ -21,14 +25,26 @@ class NetworkUserRepositoryTest {
     private val name = "name"
     private val userName = "user name"
 
-    private val userJson = UserJson(userId, name, userName, "email", null, "phone", "website", null)
+    private val userJson = UserJson(
+        userId,
+        name,
+        userName,
+        "email",
+        null,
+        "phone",
+        "website",
+        null
+    )
     private val user = User(userId, name)
 
     private val userException = Exception()
 
     @Before
     fun setUp() {
-        mSut = NetworkUserRepository(networkService, UserMapper())
+        mSut = NetworkUserRepository(
+            networkService,
+            UserMapper()
+        )
     }
 
     @Test

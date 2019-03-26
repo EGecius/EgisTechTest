@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.postdetail
+package com.egecius.egisbabylontechtest.postdetail.user
 
 import com.egecius.egisbabylontechtest.postslist.NetworkService
 import io.reactivex.Single

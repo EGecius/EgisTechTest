@@ -2,6 +2,10 @@ package com.egecius.egisbabylontechtest.postdetail.di
 
 import com.egecius.egisbabylontechtest.InteractorSchedulers
 import com.egecius.egisbabylontechtest.postdetail.*
+import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
+import com.egecius.egisbabylontechtest.postdetail.user.NetworkUserRepository
+import com.egecius.egisbabylontechtest.postdetail.user.UserMapper
+import com.egecius.egisbabylontechtest.postdetail.user.UserRepository
 import com.egecius.egisbabylontechtest.postslist.NetworkService
 import dagger.Module
 import dagger.Provides

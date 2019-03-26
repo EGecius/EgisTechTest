@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.postdetail
+package com.egecius.egisbabylontechtest.postdetail.user
 
 data class UserJson(
     val id: Int,

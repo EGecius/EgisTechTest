@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.postdetail
+package com.egecius.egisbabylontechtest.postdetail.user
 
 import io.reactivex.Single
 

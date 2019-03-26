@@ -1,6 +1,8 @@
 package com.egecius.egisbabylontechtest.postdetail
 
 import com.egecius.egisbabylontechtest.TestInteractorSchedulers
+import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
+import com.egecius.egisbabylontechtest.postdetail.user.User
 import com.egecius.egisbabylontechtest.postslist.Post
 import com.nhaarman.mockitokotlin2.clearInvocations
 import com.nhaarman.mockitokotlin2.given
