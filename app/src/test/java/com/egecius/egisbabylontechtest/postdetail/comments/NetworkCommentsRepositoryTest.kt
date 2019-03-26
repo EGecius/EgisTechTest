@@ -10,7 +10,7 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class CommentRepositoryTest {
+class NetworkCommentsRepositoryTest {
 
     @Mock
     private lateinit var networkService: NetworkService
@@ -20,11 +20,11 @@ class CommentRepositoryTest {
     private val commentsJsonList = listOf(CommentJson(commentId, 15, "name", "email", "body"))
     private val commentsList = listOf(Comment(commentId, 15, "name", "body"))
 
-    private lateinit var sut: CommentRepository
+    private lateinit var sut: NetworkCommentsRepository
 
     @Before
     fun setup() {
-        sut = CommentRepository(networkService, CommentMapper())
+        sut = NetworkCommentsRepository(networkService, CommentMapper())
     }
 
     @Test
