@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.MyApplication
 import com.egecius.egisbabylontechtest.R
-import com.egecius.egisbabylontechtest.di.ListActivityModule
+import com.egecius.egisbabylontechtest.postslist.di.ListActivityModule
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject

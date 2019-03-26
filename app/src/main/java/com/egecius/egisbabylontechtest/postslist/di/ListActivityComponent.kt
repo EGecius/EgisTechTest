@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.di
+package com.egecius.egisbabylontechtest.postslist.di
 
 import com.egecius.egisbabylontechtest.postslist.PostsListActivity
 import dagger.Subcomponent

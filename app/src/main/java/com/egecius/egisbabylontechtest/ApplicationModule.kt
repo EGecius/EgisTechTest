@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest
 
-import com.egecius.egisbabylontechtest.di.AndroidInteractorSchedulers
+import com.egecius.egisbabylontechtest.postslist.di.AndroidInteractorSchedulers
 import dagger.Module
 import dagger.Provides
 

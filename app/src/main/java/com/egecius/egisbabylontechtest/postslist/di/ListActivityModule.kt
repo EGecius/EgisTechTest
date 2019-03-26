@@ -1,4 +1,4 @@
-package com.egecius.egisbabylontechtest.di
+package com.egecius.egisbabylontechtest.postslist.di
 
 import android.app.Activity
 import com.egecius.egisbabylontechtest.InteractorSchedulers
