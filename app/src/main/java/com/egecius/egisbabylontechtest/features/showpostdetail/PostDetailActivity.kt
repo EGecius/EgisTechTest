@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.graphics.drawable.toBitmap
+import androidx.palette.graphics.Palette
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostdetail.di.PostDetailModule
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
@@ -12,6 +14,7 @@ import com.egecius.egisbabylontechtest.features.showpostlist.PostClick
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import javax.inject.Inject
@@ -71,7 +74,17 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
 
     override fun showUser(user: User) {
         userNameView.text = user.name
-        Picasso.get().load(user.image).into(userImageView)
+        Picasso.get().load(user.image).into(userImageView, object : Callback {
+            override fun onError(p0: Exception?) {
+            }
+
+            override fun onSuccess() {
+                val bitmap = userImageView.drawable.toBitmap()
+                val palette = Palette.Builder(bitmap).generate()
+                val backgroundColour = palette.lightMutedSwatch!!.rgb
+                parentLayout.setBackgroundColor(backgroundColour)
+            }
+        })
     }
 
     companion object {
