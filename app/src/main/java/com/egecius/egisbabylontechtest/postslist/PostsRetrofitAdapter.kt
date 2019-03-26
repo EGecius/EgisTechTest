@@ -14,14 +14,14 @@ class PostsRetrofitAdapter {
 
     private val baseUrl = "http://jsonplaceholder.typicode.com/"
 
-    fun setupRetrofit(): PostsService {
+    fun setupRetrofit(): NetworkService {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(createLoggingOkHttpClient())
             .build()
-            .create(PostsService::class.java)
+            .create(NetworkService::class.java)
     }
 
     private fun createLoggingOkHttpClient(): OkHttpClient {
@@ -32,7 +32,7 @@ class PostsRetrofitAdapter {
 
 }
 
-interface PostsService {
+interface NetworkService {
 
     @GET("posts")
     fun getPosts(): Single<List<PostJson>>

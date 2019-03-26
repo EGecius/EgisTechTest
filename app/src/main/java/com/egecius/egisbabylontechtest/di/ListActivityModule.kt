@@ -29,14 +29,14 @@ class ListActivityModule(private val activity: Activity) {
 
     @Provides
     fun providePostsRepository(
-        postsService: PostsService,
+        networkService: NetworkService,
         mapper: PostMapper
     ): PostsRepository {
-        return NetworkRepository(postsService, mapper)
+        return NetworkPostsRepository(networkService, mapper)
     }
 
     @Provides
-    fun providesPostsService() : PostsService {
+    fun providesPostsService() : NetworkService {
         return PostsRetrofitAdapter().setupRetrofit()
     }
 

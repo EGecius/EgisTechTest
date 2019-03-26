@@ -2,13 +2,13 @@ package com.egecius.egisbabylontechtest.postslist
 
 import io.reactivex.Single
 
-class NetworkRepository(
-    private val postsService: PostsService,
+class NetworkPostsRepository(
+    private val networkService: NetworkService,
     private val mapper: PostMapper
 ) : PostsRepository {
 
     override fun getPosts(): Single<List<Post>> {
-        return postsService.getPosts()
+        return networkService.getPosts()
             .map { mapper.toPosts(it) }
     }
 
