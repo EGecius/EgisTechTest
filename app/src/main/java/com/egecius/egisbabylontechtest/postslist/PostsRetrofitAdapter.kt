@@ -1,5 +1,6 @@
 package com.egecius.egisbabylontechtest.postslist
 
+import com.egecius.egisbabylontechtest.BuildConfig.DEBUG
 import com.egecius.egisbabylontechtest.postdetail.comments.CommentJson
 import com.egecius.egisbabylontechtest.postdetail.user.UserJson
 import io.reactivex.Single
@@ -27,7 +28,11 @@ class PostsRetrofitAdapter {
 
     private fun createLoggingOkHttpClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        if (DEBUG) {
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+        } else {
+            interceptor.level = HttpLoggingInterceptor.Level.NONE
+        }
         return OkHttpClient.Builder().addInterceptor(interceptor).build()
     }
 
@@ -43,5 +48,5 @@ interface NetworkService {
     fun getUser(@Path("id") userId: Int): Single<UserJson>
 
     @GET("comments")
-    fun getComments() : Single<List<CommentJson>>
+    fun getComments(): Single<List<CommentJson>>
 }
