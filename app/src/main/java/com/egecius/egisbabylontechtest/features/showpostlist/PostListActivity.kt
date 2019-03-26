@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostlist.di.ListActivityModule
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
-import com.egecius.egisbabylontechtest.infrastructure.ActivityNavigator
+import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
@@ -18,11 +17,11 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
     @Inject
     lateinit var presenterPost: PostListActivityPresenter
     @Inject
-    lateinit var navigator: ActivityNavigator
+    lateinit var navigatorPostList: PostListActivityNavigator
 
     private val listActivityAdapter = PostListActivityAdapter(object : PostListActivityAdapter.OnClickListener {
         override fun onClick(postClick: PostClick) {
-            navigator.showPostDetail(postClick)
+            navigatorPostList.showPostDetail(postClick)
         }
     })
 

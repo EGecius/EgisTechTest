@@ -1,12 +1,12 @@
 package com.egecius.egisbabylontechtest.features.showpostlist.di
 
 import android.app.Activity
+import com.egecius.egisbabylontechtest.features.showpostlist.PostListActivityNavigator
 import com.egecius.egisbabylontechtest.features.showpostlist.PostListActivityPresenter
 import com.egecius.egisbabylontechtest.features.showpostlist.post.GetPostsInteractor
 import com.egecius.egisbabylontechtest.features.showpostlist.post.NetworkPostsRepository
 import com.egecius.egisbabylontechtest.features.showpostlist.post.PostMapper
 import com.egecius.egisbabylontechtest.features.showpostlist.post.PostsRepository
-import com.egecius.egisbabylontechtest.infrastructure.ActivityNavigator
 import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import dagger.Module
@@ -24,8 +24,8 @@ class ListActivityModule(private val activity: Activity) {
     }
 
     @Provides
-    fun provideActivityNavigator(): ActivityNavigator {
-        return ActivityNavigator(activity)
+    fun provideActivityNavigator(): PostListActivityNavigator {
+        return PostListActivityNavigator(activity)
     }
 
     @Provides
