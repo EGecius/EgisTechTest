@@ -26,7 +26,7 @@ class PostMapperTest {
     fun `maps to posts`() {
         val listPosts = mSut.toPosts(listPostsJson)
 
-        assertThat(listPosts).containsExactly(Post(title0), Post(title1))
+        assertThat(listPosts).containsExactly(Post(title0, body0), Post(title1, body1))
     }
 
 }
