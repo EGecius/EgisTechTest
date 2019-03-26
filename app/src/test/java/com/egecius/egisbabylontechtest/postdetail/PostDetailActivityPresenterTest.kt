@@ -38,7 +38,7 @@ class PostDetailActivityPresenterTest {
     private val post = Post(postId, "title", "body", userId)
     private val userName = "user name"
 
-    private val user = User(13, userName)
+    private val user = User(13, userName, "userImage")
 
     @Test
     fun `shows post on start`() {
@@ -57,7 +57,7 @@ class PostDetailActivityPresenterTest {
 
         mSut.startPresenting(view, post)
 
-        verify(view).showUserName(userName)
+        verify(view).showUser(user)
     }
 
     private fun givenGettingUserWillSucceed() {
@@ -87,7 +87,7 @@ class PostDetailActivityPresenterTest {
         mSut.retryShowingUser()
 
         // called twice - 1st one from startPresenting()
-        verify(view, times(2)).showUserName(userName)
+        verify(view, times(2)).showUser(user)
     }
 
     @Test

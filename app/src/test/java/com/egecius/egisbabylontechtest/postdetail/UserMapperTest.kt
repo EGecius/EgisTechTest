@@ -11,6 +11,7 @@ class UserMapperTest {
     private val userId = 1
 
     private val userName = "John Smith"
+    private val userImage = "https://api.adorable.io/avatars/250/John_Smith.png"
 
     private val userJson = UserJson(
         userId,
@@ -37,7 +38,7 @@ class UserMapperTest {
     fun `maps to user`() {
         val user = mSut.toUser(userJson)
 
-        assertThat(user).isEqualTo(User(userId, userName))
+        assertThat(user).isEqualTo(User(userId, userName, userImage))
     }
 
 }

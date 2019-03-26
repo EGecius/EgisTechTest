@@ -16,6 +16,13 @@
             tools:text="Post title"
             tools:targetApi="lollipop"/>
 
+    <ImageView
+            android:id="@+id/userImageView"
+            android:layout_width="180sp"
+            android:layout_height="180sp"
+            tools:src="@drawable/ic_launcher_background"
+            android:contentDescription="@string/user_image"/>
+
     <TextView
             android:id="@+id/userNameView"
             android:textSize="@dimen/post_detail_user_name"

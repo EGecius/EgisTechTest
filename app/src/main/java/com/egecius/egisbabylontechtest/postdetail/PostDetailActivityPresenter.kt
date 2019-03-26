@@ -3,6 +3,7 @@ package com.egecius.egisbabylontechtest.postdetail
 import com.egecius.egisbabylontechtest.InteractorSchedulers
 import com.egecius.egisbabylontechtest.postdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
+import com.egecius.egisbabylontechtest.postdetail.user.User
 import com.egecius.egisbabylontechtest.postslist.Post
 import io.reactivex.disposables.CompositeDisposable
 
@@ -33,7 +34,7 @@ class PostDetailActivityPresenter(
             .subscribeOn(schedulers.getExecutionsScheduler())
             .observeOn(schedulers.getPostExecutionScheduler())
             .subscribe({
-                view.showUserName(it.name)
+                view.showUser(it)
             }, { view.showUserLoadingError() })
 
         compositeDisposable.add(disposable)
@@ -65,7 +66,7 @@ class PostDetailActivityPresenter(
     interface View {
 
         fun showPost(post: Post)
-        fun showUserName(userName: String)
+        fun showUser(user: User)
         fun showUserLoadingError()
         fun showNumberOfComments(no: Int)
         fun showCommentLoadingError()

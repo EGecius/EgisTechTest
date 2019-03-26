@@ -8,9 +8,11 @@ import androidx.core.app.ActivityOptionsCompat
 import com.egecius.egisbabylontechtest.MyApplication
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.postdetail.di.PostDetailModule
+import com.egecius.egisbabylontechtest.postdetail.user.User
 import com.egecius.egisbabylontechtest.postslist.Post
 import com.egecius.egisbabylontechtest.postslist.PostClick
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import javax.inject.Inject
 
@@ -67,8 +69,9 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         postBodyView.text = post.body
     }
 
-    override fun showUserName(userName: String) {
-        userNameView.text = userName
+    override fun showUser(user: User) {
+        userNameView.text = user.name
+        Picasso.get().load(user.image).into(userImageView)
     }
 
     companion object {

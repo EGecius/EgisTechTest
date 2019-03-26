@@ -23,6 +23,8 @@ class NetworkUserRepositoryTest {
 
     private val userId = 1
     private val name = "name"
+    private val userImage = "https://api.adorable.io/avatars/250/Leanne_Graham.png"
+
     private val userName = "user name"
 
     private val userJson = UserJson(
@@ -35,7 +37,7 @@ class NetworkUserRepositoryTest {
         "website",
         null
     )
-    private val user = User(userId, name)
+    private val user = User(userId, name, userImage)
 
     private val userException = Exception()
 
