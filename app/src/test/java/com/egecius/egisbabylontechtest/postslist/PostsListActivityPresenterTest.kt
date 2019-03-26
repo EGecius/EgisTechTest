@@ -1,8 +1,6 @@
-package com.egecius.egisbabylontechtest
+package com.egecius.egisbabylontechtest.postslist
 
-import com.egecius.egisbabylontechtest.postslist.GetPostsInteractor
-import com.egecius.egisbabylontechtest.postslist.ListActivityPresenter
-import com.egecius.egisbabylontechtest.postslist.Post
+import com.egecius.egisbabylontechtest.TestInteractorSchedulers
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
