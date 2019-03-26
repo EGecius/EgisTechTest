@@ -36,6 +36,10 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         presenter.startPresenting(this, post)
     }
 
+    override fun showError() {
+        TODO("not implemented")
+    }
+
     override fun onStop() {
         super.onStop()
         presenter.stopPresenting()
@@ -44,6 +48,10 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
     override fun showPost(post: Post) {
         postTitleView.text = post.title
         postBodyView.text = post.body
+    }
+
+    override fun showUserName(userName: String) {
+        userNameView.text = userName
     }
 
     companion object {

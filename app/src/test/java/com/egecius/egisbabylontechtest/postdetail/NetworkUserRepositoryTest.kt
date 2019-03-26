@@ -10,9 +10,9 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class NetworkUsersRepositoryTest {
+class NetworkUserRepositoryTest {
 
-    private lateinit var mSut: NetworkUsersRepository
+    private lateinit var mSut: NetworkUserRepository
 
     @Mock
     private lateinit var networkService: NetworkService
@@ -28,7 +28,7 @@ class NetworkUsersRepositoryTest {
 
     @Before
     fun setUp() {
-        mSut = NetworkUsersRepository(networkService, UserMapper())
+        mSut = NetworkUserRepository(networkService, UserMapper())
     }
 
     @Test

@@ -36,11 +36,6 @@ class ListActivityModule(private val activity: Activity) {
     }
 
     @Provides
-    fun providesPostsService() : NetworkService {
-        return PostsRetrofitAdapter().setupRetrofit()
-    }
-
-    @Provides
     fun providesPostMapper(): PostMapper {
         return PostMapper()
     }

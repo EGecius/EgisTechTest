@@ -16,6 +16,12 @@
             tools:targetApi="lollipop"/>
 
     <TextView
+            android:id="@+id/userNameView"
+            android:textSize="@dimen/post_detail_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
             android:id="@+id/postBodyView"
             android:textSize="@dimen/post_detail_body"
             android:layout_width="wrap_content"

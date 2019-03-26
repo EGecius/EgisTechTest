@@ -38,6 +38,6 @@ interface NetworkService {
     fun getPosts(): Single<List<PostJson>>
 
 
-    @GET("user/{id}")
+    @GET("users/{id}")
     fun getUser(@Path("id") userId: Int): Single<UserJson>
 }

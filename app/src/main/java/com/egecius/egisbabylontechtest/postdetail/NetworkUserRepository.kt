@@ -3,7 +3,7 @@ package com.egecius.egisbabylontechtest.postdetail
 import com.egecius.egisbabylontechtest.postslist.NetworkService
 import io.reactivex.Single
 
-class NetworkUsersRepository(
+class NetworkUserRepository(
     private val networkService: NetworkService,
     private val userMapper: UserMapper
 ) : UserRepository {
