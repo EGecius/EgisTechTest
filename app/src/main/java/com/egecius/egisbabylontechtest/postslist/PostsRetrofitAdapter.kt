@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest.postslist
 
-import com.egecius.egisbabylontechtest.postdetail.User
+import com.egecius.egisbabylontechtest.postdetail.UserJson
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,5 +39,5 @@ interface NetworkService {
 
 
     @GET("user/{id}")
-    fun getUser(@Path("id") userId: Int): Single<User>
+    fun getUser(@Path("id") userId: Int): Single<UserJson>
 }

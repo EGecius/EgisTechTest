@@ -5,10 +5,10 @@ data class UserJson(
     val name: String,
     val username: String,
     val email: String,
-    val address: AddressJson,
+    val address: AddressJson?,
     val phone: String,
     val website: String,
-    val company: CompanyJson
+    val company: CompanyJson?
 )
 
 data class AddressJson(

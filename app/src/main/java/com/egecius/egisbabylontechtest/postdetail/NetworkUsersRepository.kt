@@ -9,6 +9,7 @@ class NetworkUsersRepository(
 ) : UserRepository {
 
     override fun getUser(id: Int): Single<User> {
-        TODO("not implemented")
+        return networkService.getUser(id)
+            .map { userMapper.toUser(it) }
     }
 }
