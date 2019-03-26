@@ -16,7 +16,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class NetworkUserRepositoryTest {
 
-    private lateinit var mSut: NetworkUserRepository
+    private lateinit var sut: NetworkUserRepository
 
     @Mock
     private lateinit var networkService: NetworkService
@@ -43,7 +43,7 @@ class NetworkUserRepositoryTest {
 
     @Before
     fun setUp() {
-        mSut = NetworkUserRepository(
+        sut = NetworkUserRepository(
             networkService,
             UserMapper()
         )
@@ -53,7 +53,7 @@ class NetworkUserRepositoryTest {
     fun `fetches user`() {
         givenNetworkServiceWillSucceed()
 
-        val testObserver = mSut.getUser(userId).test()
+        val testObserver = sut.getUser(userId).test()
 
         testObserver.assertResult(user)
     }
@@ -66,7 +66,7 @@ class NetworkUserRepositoryTest {
     fun `returns error`() {
         givenNetworkServiceWillFail()
 
-        val testObserver = mSut.getUser(userId).test()
+        val testObserver = sut.getUser(userId).test()
 
         testObserver.assertError(userException)
     }

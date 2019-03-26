@@ -16,13 +16,13 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class PostsListActivityPresenterTest {
 
+    lateinit var sut: ListActivityPresenter
+
     @Mock
     lateinit var view: ListActivityPresenter.View
 
     @Mock
     private lateinit var getPostsInteractor: GetPostsInteractor
-
-    lateinit var mSut: ListActivityPresenter
 
     private val posts: List<Post> = listOf(
         Post(1, "title 1", "body 1", 15)
@@ -30,14 +30,14 @@ class PostsListActivityPresenterTest {
 
     @Before
     fun setUp() {
-        mSut = ListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
+        sut = ListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
     }
 
     @Test
     fun `shows posts`() {
         givenPostsWillLoadSuccessfully()
 
-        mSut.startPresenting(view)
+        sut.startPresenting(view)
 
         verify(view).showPosts(posts)
     }
@@ -51,7 +51,7 @@ class PostsListActivityPresenterTest {
     fun `handles error`() {
         given(getPostsInteractor.getPosts()).willReturn(Single.error(Exception()))
 
-        mSut.startPresenting(view)
+        sut.startPresenting(view)
 
         verify(view).showError()
     }
@@ -59,9 +59,9 @@ class PostsListActivityPresenterTest {
     @Test
     fun `retries fetching`() {
         givenPostsWillLoadSuccessfully()
-        mSut.startPresenting(view)
+        sut.startPresenting(view)
 
-        mSut.retryFetching()
+        sut.retryFetching()
 
         // called twice - 1st one from startPresenting()
         verify(view, times(2)).showPosts(posts)

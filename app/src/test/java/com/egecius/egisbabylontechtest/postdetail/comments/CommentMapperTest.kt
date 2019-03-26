@@ -5,7 +5,7 @@ import org.junit.Test
 
 class CommentMapperTest {
 
-    private var mSut = CommentMapper()
+    private var sut = CommentMapper()
 
     private val commentId1 = 1
 
@@ -17,7 +17,7 @@ class CommentMapperTest {
 
     @Test
     fun `maps to comment`() {
-        val comment = mSut.toComments(listCommentsJson)
+        val comment = sut.toComments(listCommentsJson)
 
         assertThat(comment).isEqualTo(listComments)
     }

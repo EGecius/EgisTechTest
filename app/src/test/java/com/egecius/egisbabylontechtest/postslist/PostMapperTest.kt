@@ -5,7 +5,7 @@ import org.junit.Test
 
 class PostMapperTest {
 
-    private var mSut = PostMapper()
+    private var sut = PostMapper()
 
     private val title0 = "title 0"
     private val body0 = "body 0"
@@ -24,7 +24,7 @@ class PostMapperTest {
 
     @Test
     fun `maps to posts`() {
-        val listPosts = mSut.toPosts(listPostsJson)
+        val listPosts = sut.toPosts(listPostsJson)
 
         assertThat(listPosts).containsExactly(Post(postId0, title0, body0, userId0), Post(postId1, title1, body1, userId1))
     }

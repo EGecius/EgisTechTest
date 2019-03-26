@@ -18,14 +18,15 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class PostDetailActivityPresenterTest {
 
+    private lateinit var mSut: PostDetailActivityPresenter
+
     @Mock
     private lateinit var view: PostDetailActivityPresenter.View
     @Mock
     private lateinit var getUserInteractor: GetUserInteractor
+
     @Mock
     private lateinit var getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor
-
-    private lateinit var mSut: PostDetailActivityPresenter
     private val userId = 18
 
     private val postId = 1

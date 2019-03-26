@@ -6,7 +6,7 @@ import org.junit.Test
 
 class UserMapperTest {
 
-    private var mSut = UserMapper()
+    private var sut = UserMapper()
 
     private val userId = 1
 
@@ -36,7 +36,7 @@ class UserMapperTest {
 
     @Test
     fun `maps to user`() {
-        val user = mSut.toUser(userJson)
+        val user = sut.toUser(userJson)
 
         assertThat(user).isEqualTo(User(userId, userName, userImage))
     }
