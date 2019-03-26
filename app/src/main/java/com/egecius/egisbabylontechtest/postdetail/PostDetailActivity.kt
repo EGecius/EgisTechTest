@@ -10,6 +10,7 @@ import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.postdetail.di.PostDetailModule
 import com.egecius.egisbabylontechtest.postslist.Post
 import com.egecius.egisbabylontechtest.postslist.PostClick
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import javax.inject.Inject
 
@@ -36,8 +37,12 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         presenter.startPresenting(this, post)
     }
 
-    override fun showError() {
-        TODO("not implemented")
+    override fun showUserLoadingError() {
+        Snackbar.make(parentLayout, R.string.loading_error, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.retry) {
+                presenter.retryShowingUser()
+            }
+            .show()
     }
 
     override fun onStop() {

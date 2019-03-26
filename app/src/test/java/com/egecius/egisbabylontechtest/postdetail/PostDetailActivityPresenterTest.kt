@@ -2,6 +2,7 @@ package com.egecius.egisbabylontechtest.postdetail
 
 import com.egecius.egisbabylontechtest.TestInteractorSchedulers
 import com.egecius.egisbabylontechtest.postslist.Post
+import com.nhaarman.mockitokotlin2.clearInvocations
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
@@ -60,11 +61,22 @@ class PostDetailActivityPresenterTest {
 
         mSut.startPresenting(view, post)
 
-        verify(view).showError()
+        verify(view).showUserLoadingError()
     }
 
     private fun givenGettingUserWillFail() {
         given(getUserInteractor.getUser(userId)).willReturn(Single.error(Exception()))
+    }
+
+    @Test
+    fun `retries loading user`() {
+        givenGettingUserWillSucceed()
+        mSut.startPresenting(view, post)
+        clearInvocations(view)
+
+        mSut.retryShowingUser()
+
+        verify(view).showUserName(userName)
     }
 
 }
