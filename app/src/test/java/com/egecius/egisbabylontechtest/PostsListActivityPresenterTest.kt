@@ -24,7 +24,7 @@ class PostsListActivityPresenterTest {
     lateinit var mSut: ListActivityPresenter
 
     private val posts: List<Post> = listOf(
-        Post("title 1", "body 1")
+        Post(1, "title 1", "body 1", 15)
     )
 
     @Before

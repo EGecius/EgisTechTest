@@ -8,7 +8,7 @@ class PostMapper {
         val resultList = mutableListOf<Post>()
 
         for (postJson in postsJson) {
-            resultList.add(Post(postJson.title, postJson.body))
+            resultList.add(Post(postJson.id, postJson.title, postJson.body, postJson.userId))
         }
 
         return resultList
