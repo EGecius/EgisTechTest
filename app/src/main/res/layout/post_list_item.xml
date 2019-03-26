@@ -15,22 +15,15 @@
             android:layout_height="@dimen/card_height"
             card_view:cardCornerRadius="@dimen/card_corner_radius">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:padding="@dimen/card_padding"
-                android:layout_height="match_parent"
-                tools:targetApi="lollipop">
-
-            <TextView
-                    android:id="@+id/title"
-                    android:transitionName="post_title"
-                    android:textSize="@dimen/card_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Post title"/>
-
-        </LinearLayout>
+        <TextView
+                android:id="@+id/title"
+                android:transitionName="post_title"
+                android:textSize="@dimen/card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_padding"
+                tools:targetApi="lollipop"
+                tools:text="Post title"/>
 
     </androidx.cardview.widget.CardView>
 
