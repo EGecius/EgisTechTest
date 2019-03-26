@@ -59,7 +59,7 @@ class PostsListActivityPresenterTest {
     fun `retries fetching`() {
         givenPostsWillLoadSuccessfully()
 
-        mSut.retryFetching(view)
+        mSut.retryFetching()
 
         verify(view).showPosts(posts)
     }

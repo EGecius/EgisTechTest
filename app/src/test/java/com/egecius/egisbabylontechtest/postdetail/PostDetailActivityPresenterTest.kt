@@ -1,6 +1,7 @@
 package com.egecius.egisbabylontechtest.postdetail
 
 import com.egecius.egisbabylontechtest.TestInteractorSchedulers
+import com.egecius.egisbabylontechtest.postdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.postdetail.user.User
 import com.egecius.egisbabylontechtest.postslist.Post
@@ -21,6 +22,8 @@ class PostDetailActivityPresenterTest {
     private lateinit var view: PostDetailActivityPresenter.View
     @Mock
     private lateinit var getUserInteractor: GetUserInteractor
+    @Mock
+    private lateinit var getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor
 
     private lateinit var mSut: PostDetailActivityPresenter
     private val userId = 18
@@ -29,7 +32,7 @@ class PostDetailActivityPresenterTest {
 
     @Before
     fun setUp() {
-        mSut = PostDetailActivityPresenter(getUserInteractor, TestInteractorSchedulers())
+        mSut = PostDetailActivityPresenter(getUserInteractor, getNumberOfCommentsInteractor, TestInteractorSchedulers())
     }
 
     private val post = Post(postId, "title", "body", userId)
@@ -79,6 +82,47 @@ class PostDetailActivityPresenterTest {
         mSut.retryShowingUser()
 
         verify(view).showUserName(userName)
+    }
+
+    @Test
+    fun `shows number of comments`() {
+        givenNumberOfCommentsIs3()
+        givenGettingUserWillSucceed()
+
+        mSut.startPresenting(view, post)
+
+        verify(view).showNumberOfComments(3)
+    }
+
+    private fun givenNumberOfCommentsIs3() {
+        given(getNumberOfCommentsInteractor.getNumberOfComments(1)).willReturn(Single.just(3))
+    }
+
+
+    @Test
+    fun `handles error of getting number of comments`() {
+        givenGettingCommentsWillFail()
+        givenGettingUserWillSucceed()
+
+        mSut.startPresenting(view, post)
+
+        verify(view).showCommentLoadingError()
+    }
+
+    private fun givenGettingCommentsWillFail() {
+        given(getNumberOfCommentsInteractor.getNumberOfComments(1)).willReturn(Single.error(Exception()))
+    }
+
+    @Test
+    fun `retries loading comments`() {
+        givenGettingUserWillSucceed()
+        givenNumberOfCommentsIs3()
+        mSut.startPresenting(view, post)
+        clearInvocations(view)
+
+        mSut.retryShowingComments()
+
+        verify(view).showNumberOfComments(3)
     }
 
 }

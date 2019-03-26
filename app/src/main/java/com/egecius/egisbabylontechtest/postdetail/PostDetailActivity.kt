@@ -45,6 +45,18 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
             .show()
     }
 
+    override fun showNumberOfComments(no: Int) {
+        TODO("not implemented")
+    }
+
+    override fun showCommentLoadingError() {
+        Snackbar.make(parentLayout, R.string.loading_error, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.retry) {
+                presenter.retryShowingComments()
+            }
+            .show()
+    }
+
     override fun onStop() {
         super.onStop()
         presenter.stopPresenting()

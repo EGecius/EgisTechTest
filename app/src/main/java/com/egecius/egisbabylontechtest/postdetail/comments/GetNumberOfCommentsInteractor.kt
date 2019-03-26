@@ -3,9 +3,9 @@ package com.egecius.egisbabylontechtest.postdetail.comments
 import io.reactivex.Single
 import io.reactivex.functions.Function
 
-class GetNumberOfCommentsInteractor(private val commentsRepository: CommentsRepository) {
+open class GetNumberOfCommentsInteractor(private val commentsRepository: CommentsRepository) {
 
-    fun getNumberOfComments(postId: Int) : Single<Int> {
+    open fun getNumberOfComments(postId: Int): Single<Int> {
         return commentsRepository.getComments()
             .map(object : Function<List<Comment>, List<Comment>> {
                 override fun apply(allComments: List<Comment>): List<Comment> {

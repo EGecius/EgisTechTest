@@ -1,12 +1,14 @@
 package com.egecius.egisbabylontechtest.postdetail
 
 import com.egecius.egisbabylontechtest.InteractorSchedulers
+import com.egecius.egisbabylontechtest.postdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.postdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.postslist.Post
 import io.reactivex.disposables.CompositeDisposable
 
 class PostDetailActivityPresenter(
     private val getUserInteractor: GetUserInteractor,
+    private val getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor,
     private val schedulers: InteractorSchedulers
 ) {
 
@@ -23,6 +25,7 @@ class PostDetailActivityPresenter(
         view.showPost(post)
 
         showUser()
+        showNumberOfComments()
     }
 
     private fun showUser() {
@@ -36,6 +39,17 @@ class PostDetailActivityPresenter(
         compositeDisposable.add(disposable)
     }
 
+    private fun showNumberOfComments() {
+        val disposable = getNumberOfCommentsInteractor.getNumberOfComments(post.id)
+            .subscribeOn(schedulers.getExecutionsScheduler())
+            .observeOn(schedulers.getPostExecutionScheduler())
+            .subscribe({
+                view.showNumberOfComments(it)
+            }, { view.showCommentLoadingError() })
+
+        compositeDisposable.add(disposable)
+    }
+
     fun stopPresenting() {
         compositeDisposable.clear()
     }
@@ -44,10 +58,16 @@ class PostDetailActivityPresenter(
         showUser()
     }
 
+    fun retryShowingComments() {
+        showNumberOfComments()
+    }
+
     interface View {
 
         fun showPost(post: Post)
         fun showUserName(userName: String)
         fun showUserLoadingError()
+        fun showNumberOfComments(no: Int)
+        fun showCommentLoadingError()
     }
 }
