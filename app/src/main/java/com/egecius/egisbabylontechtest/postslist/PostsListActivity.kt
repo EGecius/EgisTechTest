@@ -65,7 +65,7 @@ class PostsListActivity : AppCompatActivity(), ListActivityPresenter.View {
     override fun showError() {
         Snackbar.make(parentLayout, getString(R.string.loading_error), Snackbar.LENGTH_INDEFINITE)
             .setAction(getString(R.string.retry)) {
-                presenter.retryFetching(this)
+                presenter.retryFetching()
                 progressBar.visibility = View.VISIBLE
             }
             .show()
