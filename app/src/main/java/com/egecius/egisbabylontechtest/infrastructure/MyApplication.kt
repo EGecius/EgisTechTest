@@ -1,7 +1,6 @@
 package com.egecius.egisbabylontechtest.infrastructure
 
 import android.app.Application
-import com.egecius.egisbabylontechtest.DaggerApplicationComponent
 
 class MyApplication : Application() {
 
