@@ -7,11 +7,18 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/postTitle"
-            android:textSize="24sp"
+            android:id="@+id/postTitleView"
+            android:textSize="@dimen/post_detail_title"
             android:transitionName="post_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Post title"/>
+            tools:text="Post title"
+            tools:targetApi="lollipop"/>
+
+    <TextView
+            android:id="@+id/postBodyView"
+            android:textSize="@dimen/post_detail_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -18,12 +18,14 @@ class PostDetailActivity : AppCompatActivity() {
 
         val post = intent.getSerializableExtra(KEY_POS) as Post
 
-        postTitle.text = post.title
+        postTitleView.text = post.title
+        postBodyView.text = post.body
     }
 
     companion object {
 
         private const val KEY_POS = "KEY_POS"
+        private const val postTitle = "post_title"
 
         fun start(
             originActivity: Activity,
@@ -32,7 +34,7 @@ class PostDetailActivity : AppCompatActivity() {
             val intent = Intent(originActivity, PostDetailActivity::class.java)
             intent.putExtra(KEY_POS, postClick.post)
             val options =
-                ActivityOptionsCompat.makeSceneTransitionAnimation(originActivity, postClick.titleView, "post_title")
+                ActivityOptionsCompat.makeSceneTransitionAnimation(originActivity, postClick.titleView, postTitle)
             originActivity.startActivity(intent, options.toBundle())
         }
     }
