@@ -20,7 +20,6 @@ class GetNumberOfCommentsInteractorTest {
     private val postId2 = 2
 
     private val comment1 = Comment(1, postId1, "name 1", "body 1")
-
     private val comment2 = Comment(2, postId2, "name 2", "body 2")
     private val comment3 = Comment(3, postId1, "name 3", "body 3")
     private val comment4 = Comment(4, postId2, "name 4", "body 4")
