@@ -5,12 +5,11 @@
               android:orientation="vertical"
               android:padding="@dimen/padding_default"
               android:layout_width="match_parent"
-              android:gravity="center_horizontal"
               android:layout_height="match_parent">
 
     <TextView
             android:id="@+id/postTitleView"
-            android:textSize="@dimen/post_detail_title"
+            style="@style/TextAppearance.AppCompat.Title"
             android:transitionName="post_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,26 +20,30 @@
             android:id="@+id/userImageView"
             android:layout_width="@dimen/user_image_width_height"
             android:layout_height="@dimen/user_image_width_height"
+            android:layout_marginTop="8dp"
             tools:src="@drawable/ic_launcher_background"
             android:contentDescription="@string/user_image"/>
 
     <TextView
             android:id="@+id/userNameView"
-            android:textSize="@dimen/post_detail_user_name"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="User name"/>
 
     <TextView
             android:id="@+id/postBodyView"
-            android:textSize="@dimen/post_detail_body"
+            android:layout_marginTop="8dp"
+            style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Post body"/>
 
     <TextView
             android:id="@+id/numberOfCommentsView"
-            android:textSize="@dimen/post_detail_body"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Number of comments: 6"/>
