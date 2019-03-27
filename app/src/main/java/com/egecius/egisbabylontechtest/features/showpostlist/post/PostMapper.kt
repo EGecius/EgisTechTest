@@ -1,23 +1,14 @@
 package com.egecius.egisbabylontechtest.features.showpostlist.post
 
+import com.annimon.stream.Stream
+
 
 class PostMapper {
 
     fun toPosts(postsJson: List<PostJson>): List<Post> {
 
-        val resultList = mutableListOf<Post>()
-
-        for (postJson in postsJson) {
-            resultList.add(
-                Post(
-                    postJson.id,
-                    postJson.title,
-                    postJson.body,
-                    postJson.userId
-                )
-            )
-        }
-
-        return resultList
+        return Stream.of(postsJson)
+            .map{Post(it.id, it.title, it.body, it.userId)}
+            .toList()
     }
 }
