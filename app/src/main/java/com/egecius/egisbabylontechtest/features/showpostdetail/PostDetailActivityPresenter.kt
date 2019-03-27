@@ -1,15 +1,18 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail
 
-import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
+import com.egecius.egisbabylontechtest.features.showpostdetail.comments.Comment
+import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
+import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.disposables.CompositeDisposable
 
 class PostDetailActivityPresenter(
     private val getUserInteractor: GetUserInteractor,
     private val getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor,
+    private val getCommentsInteractor: GetCommentsInteractor,
     private val schedulers: InteractorSchedulers
 ) {
 
@@ -27,6 +30,7 @@ class PostDetailActivityPresenter(
 
         showUser()
         showNumberOfComments()
+        showComments()
     }
 
     private fun showUser() {
@@ -51,6 +55,17 @@ class PostDetailActivityPresenter(
         compositeDisposable.add(disposable)
     }
 
+    private fun showComments() {
+        val disposable = getCommentsInteractor.getComments(post.id)
+            .subscribeOn(schedulers.getExecutionsScheduler())
+            .observeOn(schedulers.getPostExecutionScheduler())
+            .subscribe({
+                view.showComments(it)
+            }, { view.showCommentLoadingError() })
+
+        compositeDisposable.add(disposable)
+    }
+
     fun stopPresenting() {
         compositeDisposable.clear()
     }
@@ -70,5 +85,6 @@ class PostDetailActivityPresenter(
         fun showUserLoadingError()
         fun showNumberOfComments(no: Int)
         fun showCommentLoadingError()
+        fun showComments(commentsPost1: List<Comment>)
     }
 }

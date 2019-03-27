@@ -1,10 +1,7 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.di
 
 import com.egecius.egisbabylontechtest.features.showpostdetail.PostDetailActivityPresenter
-import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentsMapper
-import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentsRepository
-import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
-import com.egecius.egisbabylontechtest.features.showpostdetail.comments.NetworkCommentsRepository
+import com.egecius.egisbabylontechtest.features.showpostdetail.comments.*
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.NetworkUserRepository
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.UserMapper
@@ -21,9 +18,11 @@ class PostDetailModule {
     fun providesPostDetailActivityPresenter(
         getUserInteractor: GetUserInteractor,
         getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor,
+        getCommentsInteractor: GetCommentsInteractor,
         interactorSchedulers: InteractorSchedulers
     ): PostDetailActivityPresenter {
-        return PostDetailActivityPresenter(getUserInteractor, getNumberOfCommentsInteractor, interactorSchedulers)
+        return PostDetailActivityPresenter(getUserInteractor, getNumberOfCommentsInteractor, getCommentsInteractor,
+            interactorSchedulers)
     }
 
     @Provides
@@ -47,6 +46,11 @@ class PostDetailModule {
     @Provides
     fun provideGetNumberOfCommentsInteractor(commentsRepository: CommentsRepository): GetNumberOfCommentsInteractor {
         return GetNumberOfCommentsInteractor(commentsRepository)
+    }
+
+    @Provides
+    fun provideGetCommentsInteractor(commentsRepository: CommentsRepository): GetCommentsInteractor {
+        return GetCommentsInteractor(commentsRepository)
     }
 
     @Provides

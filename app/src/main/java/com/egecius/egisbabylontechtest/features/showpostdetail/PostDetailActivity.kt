@@ -8,6 +8,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.palette.graphics.Palette
 import com.egecius.egisbabylontechtest.R
+import com.egecius.egisbabylontechtest.features.showpostdetail.comments.Comment
 import com.egecius.egisbabylontechtest.features.showpostdetail.di.PostDetailModule
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
 import com.egecius.egisbabylontechtest.features.showpostlist.PostClick
@@ -40,6 +41,10 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         super.onStart()
         val post = intent.getParcelableExtra(KEY_POS) as Post
         presenter.startPresenting(this, post)
+    }
+
+    override fun showComments(commentsPost1: List<Comment>) {
+        TODO("not implemented")
     }
 
     override fun showUserLoadingError() {
