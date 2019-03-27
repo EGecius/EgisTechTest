@@ -59,6 +59,7 @@ class PostDetailActivityPresenterTest {
     fun `shows post on start`() {
         givenGettingUserWillSucceed()
         givenGettingNumberOfCommentsWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         sut.startPresenting(view, post)
 
@@ -69,6 +70,7 @@ class PostDetailActivityPresenterTest {
     fun `show user name`() {
         givenGettingUserWillSucceed()
         givenGettingNumberOfCommentsWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         sut.startPresenting(view, post)
 
@@ -83,6 +85,7 @@ class PostDetailActivityPresenterTest {
     fun `handles error`() {
         givenGettingUserWillFail()
         givenGettingNumberOfCommentsWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         sut.startPresenting(view, post)
 
@@ -97,6 +100,7 @@ class PostDetailActivityPresenterTest {
     fun `retries loading user`() {
         givenGettingUserWillSucceed()
         givenGettingNumberOfCommentsWillSucceed()
+        givenGettingCommentsWillSucceed()
         sut.startPresenting(view, post)
 
         sut.retryShowingUser()
@@ -109,6 +113,7 @@ class PostDetailActivityPresenterTest {
     fun `shows number of comments`() {
         givenGettingNumberOfCommentsWillSucceed()
         givenGettingUserWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         sut.startPresenting(view, post)
 
@@ -123,6 +128,7 @@ class PostDetailActivityPresenterTest {
     fun `handles error of getting number of comments`() {
         givenGettingNumberOfCommentsWillFail()
         givenGettingUserWillSucceed()
+        givenGettingCommentsWillSucceed()
 
         sut.startPresenting(view, post)
 
@@ -137,6 +143,7 @@ class PostDetailActivityPresenterTest {
     fun `retries loading comments`() {
         givenGettingUserWillSucceed()
         givenGettingNumberOfCommentsWillSucceed()
+        givenGettingCommentsWillSucceed()
         sut.startPresenting(view, post)
 
         sut.retryShowingComments()

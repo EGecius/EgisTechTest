@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/parentLayout"
+              android:id="@+id/postDetailParentLayout"
               android:orientation="vertical"
               android:padding="@dimen/padding_default"
               android:layout_width="match_parent"
@@ -47,5 +47,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Number of comments: 6"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/comments_list_item"/>
 
 </LinearLayout>

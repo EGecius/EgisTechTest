@@ -85,6 +85,6 @@ class PostDetailActivityPresenter(
         fun showUserLoadingError()
         fun showNumberOfComments(no: Int)
         fun showCommentLoadingError()
-        fun showComments(commentsPost1: List<Comment>)
+        fun showComments(comments: List<Comment>)
     }
 }

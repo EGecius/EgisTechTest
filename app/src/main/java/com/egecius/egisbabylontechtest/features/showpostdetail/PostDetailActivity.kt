@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.palette.graphics.Palette
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.Comment
 import com.egecius.egisbabylontechtest.features.showpostdetail.di.PostDetailModule
@@ -17,10 +18,13 @@ import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import javax.inject.Inject
 
 class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View {
+
+    private val recyclerAdapter = CommentsRecyclerAdapter()
 
     @Inject
     lateinit var presenter: PostDetailActivityPresenter
@@ -29,6 +33,8 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_detail)
         injectDependencies()
+
+        setupRecycler()
     }
 
     private fun injectDependencies() {
@@ -37,14 +43,19 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
             .injectInto(this)
     }
 
+    private fun setupRecycler() {
+        commentsRecyclerView.layoutManager = LinearLayoutManager(this)
+        commentsRecyclerView.adapter = recyclerAdapter
+    }
+
     override fun onStart() {
         super.onStart()
         val post = intent.getParcelableExtra(KEY_POS) as Post
         presenter.startPresenting(this, post)
     }
 
-    override fun showComments(commentsPost1: List<Comment>) {
-        TODO("not implemented")
+    override fun showComments(comments: List<Comment>) {
+        recyclerAdapter.setData(comments)
     }
 
     override fun showUserLoadingError() {
