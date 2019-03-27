@@ -22,7 +22,7 @@ class NetworkUserRepositoryTest {
     private lateinit var networkService: NetworkService
 
     private val userId = 1
-    private val name = "name"
+    private val name = "Leanne Graham"
     private val userImage = "https://api.adorable.io/avatars/250/Leanne_Graham.png"
 
     private val userName = "user name"
