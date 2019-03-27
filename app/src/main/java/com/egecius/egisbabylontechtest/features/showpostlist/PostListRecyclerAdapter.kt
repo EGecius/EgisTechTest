@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.egecius.egisbabylontechtest.R
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 
-class PostListActivityAdapter(private val onClickListener: OnClickListener) :
-    RecyclerView.Adapter<PostListActivityAdapter.PostViewHolder>() {
+class PostListRecyclerAdapter(private val onClickListener: OnClickListener) :
+    RecyclerView.Adapter<PostListRecyclerAdapter.PostViewHolder>() {
 
     private var postList: List<Post> = emptyList()
 

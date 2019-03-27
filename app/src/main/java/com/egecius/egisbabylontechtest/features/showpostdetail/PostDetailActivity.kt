@@ -18,7 +18,6 @@ import com.egecius.egisbabylontechtest.infrastructure.MyApplication
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import javax.inject.Inject
 

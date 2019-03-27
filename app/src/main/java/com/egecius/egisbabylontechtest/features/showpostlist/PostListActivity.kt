@@ -19,7 +19,7 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
     @Inject
     lateinit var navigator: PostListActivityNavigator
 
-    private val listActivityAdapter = PostListActivityAdapter(object : PostListActivityAdapter.OnClickListener {
+    private val recyclerAdapter = PostListRecyclerAdapter(object : PostListRecyclerAdapter.OnClickListener {
         override fun onClick(postClick: PostClick) {
             navigator.showPostDetail(postClick)
         }
@@ -41,7 +41,7 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
 
     private fun setupRecycler() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = listActivityAdapter
+        recyclerView.adapter = recyclerAdapter
     }
 
     override fun onStart() {
@@ -56,7 +56,7 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
 
     override fun showPosts(posts: List<Post>) {
         hideProgressBar()
-        listActivityAdapter.setData(posts)
+        recyclerAdapter.setData(posts)
     }
 
     private fun hideProgressBar() {
