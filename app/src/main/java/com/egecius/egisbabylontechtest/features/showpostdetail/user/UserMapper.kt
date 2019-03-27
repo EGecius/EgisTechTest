@@ -1,14 +1,15 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.user
 
 class UserMapper {
+
     fun toUser(userJson: UserJson): User {
 
-        val avatarUrl = generateAvatarUrl(userJson.name)
+        val avatarUrl = createAvatarUrl(userJson.name)
 
         return User(userJson.id, userJson.name, avatarUrl)
     }
 
-    private fun generateAvatarUrl(name: String): String {
+    private fun createAvatarUrl(name: String): String {
         return avatarBaseUrl + name.replace(" ", "_") + ".png"
     }
 
