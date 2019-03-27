@@ -3,12 +3,11 @@ package com.egecius.egisbabylontechtest.features.showpostdetail.comments
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
-class CommentMapperTest {
+class CommentsMapperTest {
 
-    private var sut = CommentMapper()
+    private var sut = CommentsMapper()
 
     private val commentId1 = 1
-
     private val postId1 = 12
 
     private val commentJson = CommentJson(commentId1, postId1, "name", "email", "body")

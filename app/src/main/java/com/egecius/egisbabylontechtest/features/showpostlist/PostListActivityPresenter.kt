@@ -9,9 +9,7 @@ class PostListActivityPresenter(
     private val getPostsInteractor: GetPostsInteractor,
     private val schedulers: InteractorSchedulers
 ) {
-
     private val compositeDisposable = CompositeDisposable()
-
     private lateinit var view: View
 
     fun startPresenting(view: View) {

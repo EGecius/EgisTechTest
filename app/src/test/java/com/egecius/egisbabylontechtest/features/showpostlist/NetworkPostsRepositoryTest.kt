@@ -22,9 +22,7 @@ class NetworkPostsRepositoryTest {
     private lateinit var networkService: NetworkService
 
     private val userId = 1
-
     private val postId = 2
-
     private val title = "title"
     private val body = "body"
 

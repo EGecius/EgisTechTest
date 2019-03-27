@@ -1,10 +1,10 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail
 
-import com.egecius.egisbabylontechtest.TestInteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.GetUserInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.user.User
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
+import com.egecius.egisbabylontechtest.infrastructure.TestInteractorSchedulers
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
@@ -18,22 +18,23 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class PostDetailActivityPresenterTest {
 
-    private lateinit var mSut: PostDetailActivityPresenter
+    private lateinit var sut: PostDetailActivityPresenter
 
     @Mock
     private lateinit var view: PostDetailActivityPresenter.View
     @Mock
     private lateinit var getUserInteractor: GetUserInteractor
-
     @Mock
     private lateinit var getNumberOfCommentsInteractor: GetNumberOfCommentsInteractor
-    private val userId = 18
 
+    private val userId = 18
     private val postId = 1
 
     @Before
     fun setUp() {
-        mSut = PostDetailActivityPresenter(getUserInteractor, getNumberOfCommentsInteractor, TestInteractorSchedulers())
+        sut = PostDetailActivityPresenter(getUserInteractor, getNumberOfCommentsInteractor,
+            TestInteractorSchedulers()
+        )
     }
 
     private val post = Post(postId, "title", "body", userId)
@@ -46,7 +47,7 @@ class PostDetailActivityPresenterTest {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
 
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
         verify(view).showPost(post)
     }
@@ -56,7 +57,7 @@ class PostDetailActivityPresenterTest {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
 
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
         verify(view).showUser(user)
     }
@@ -70,7 +71,7 @@ class PostDetailActivityPresenterTest {
         givenGettingUserWillFail()
         givenGettingCommentsWillSucceed()
 
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
         verify(view).showUserLoadingError()
     }
@@ -83,9 +84,9 @@ class PostDetailActivityPresenterTest {
     fun `retries loading user`() {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
-        mSut.retryShowingUser()
+        sut.retryShowingUser()
 
         // called twice - 1st one from startPresenting()
         verify(view, times(2)).showUser(user)
@@ -96,7 +97,7 @@ class PostDetailActivityPresenterTest {
         givenGettingCommentsWillSucceed()
         givenGettingUserWillSucceed()
 
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
         verify(view).showNumberOfComments(3)
     }
@@ -111,7 +112,7 @@ class PostDetailActivityPresenterTest {
         givenGettingCommentsWillFail()
         givenGettingUserWillSucceed()
 
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
         verify(view).showCommentLoadingError()
     }
@@ -124,9 +125,9 @@ class PostDetailActivityPresenterTest {
     fun `retries loading comments`() {
         givenGettingUserWillSucceed()
         givenGettingCommentsWillSucceed()
-        mSut.startPresenting(view, post)
+        sut.startPresenting(view, post)
 
-        mSut.retryShowingComments()
+        sut.retryShowingComments()
 
         // called twice - 1st one from startPresenting()
         verify(view, times(2)).showNumberOfComments(3)

@@ -12,7 +12,6 @@ class MyApplication : Application() {
     }
 
     private fun initDependencyInjection() {
-        applicationComponent = DaggerApplicationComponent.builder()
-            .build()
+        applicationComponent = DaggerApplicationComponent.builder().build()
     }
 }

@@ -1,8 +1,8 @@
 package com.egecius.egisbabylontechtest.features.showpostlist
 
-import com.egecius.egisbabylontechtest.TestInteractorSchedulers
 import com.egecius.egisbabylontechtest.features.showpostlist.post.GetPostsInteractor
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
+import com.egecius.egisbabylontechtest.infrastructure.TestInteractorSchedulers
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
@@ -20,7 +20,6 @@ class PostPostListActivityPresenterTest {
 
     @Mock
     lateinit var view: PostListActivityPresenter.View
-
     @Mock
     private lateinit var getPostsInteractor: GetPostsInteractor
 
@@ -30,7 +29,9 @@ class PostPostListActivityPresenterTest {
 
     @Before
     fun setUp() {
-        sut = PostListActivityPresenter(getPostsInteractor, TestInteractorSchedulers())
+        sut = PostListActivityPresenter(getPostsInteractor,
+            TestInteractorSchedulers()
+        )
     }
 
     @Test

@@ -36,14 +36,12 @@ class RetrofitAdapter {
         }
         return OkHttpClient.Builder().addInterceptor(interceptor).build()
     }
-
 }
 
 interface NetworkService {
 
     @GET("posts")
     fun getPosts(): Single<List<PostJson>>
-
 
     @GET("users/{id}")
     fun getUser(@Path("id") userId: Int): Single<UserJson>

@@ -38,10 +38,7 @@ class ListActivityModule(private val activity: Activity) {
         networkService: NetworkService,
         mapper: PostMapper
     ): PostsRepository {
-        return NetworkPostsRepository(
-            networkService,
-            mapper
-        )
+        return NetworkPostsRepository(networkService, mapper)
     }
 
     @Provides

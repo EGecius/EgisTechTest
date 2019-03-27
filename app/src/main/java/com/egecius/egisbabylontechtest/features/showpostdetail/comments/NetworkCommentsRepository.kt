@@ -5,11 +5,11 @@ import io.reactivex.Single
 
 class NetworkCommentsRepository(
     private val networkService: NetworkService,
-    private val commentMapper: CommentMapper
+    private val commentsMapper: CommentsMapper
 ) : CommentsRepository {
 
     override fun getComments(): Single<List<Comment>> {
         return networkService.getComments()
-            .map { commentMapper.toComments(it) }
+            .map { commentsMapper.toComments(it) }
     }
 }

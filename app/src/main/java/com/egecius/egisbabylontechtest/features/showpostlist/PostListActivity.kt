@@ -15,13 +15,13 @@ import javax.inject.Inject
 class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
 
     @Inject
-    lateinit var presenterPost: PostListActivityPresenter
+    lateinit var presenter: PostListActivityPresenter
     @Inject
-    lateinit var navigatorPostList: PostListActivityNavigator
+    lateinit var navigator: PostListActivityNavigator
 
     private val listActivityAdapter = PostListActivityAdapter(object : PostListActivityAdapter.OnClickListener {
         override fun onClick(postClick: PostClick) {
-            navigatorPostList.showPostDetail(postClick)
+            navigator.showPostDetail(postClick)
         }
     })
 
@@ -46,12 +46,12 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
 
     override fun onStart() {
         super.onStart()
-        presenterPost.startPresenting(this)
+        presenter.startPresenting(this)
     }
 
     override fun onStop() {
         super.onStop()
-        presenterPost.stopPresenting()
+        presenter.stopPresenting()
     }
 
     override fun showPosts(posts: List<Post>) {
@@ -66,7 +66,7 @@ class PostListActivity : AppCompatActivity(), PostListActivityPresenter.View {
     override fun showError() {
         Snackbar.make(parentLayout, getString(R.string.loading_error), Snackbar.LENGTH_INDEFINITE)
             .setAction(getString(R.string.retry)) {
-                presenterPost.retryFetching()
+                presenter.retryFetching()
                 progressBar.visibility = View.VISIBLE
             }
             .show()

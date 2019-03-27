@@ -1,7 +1,7 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.di
 
 import com.egecius.egisbabylontechtest.features.showpostdetail.PostDetailActivityPresenter
-import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentMapper
+import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentsMapper
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.CommentsRepository
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.GetNumberOfCommentsInteractor
 import com.egecius.egisbabylontechtest.features.showpostdetail.comments.NetworkCommentsRepository
@@ -52,14 +52,14 @@ class PostDetailModule {
     @Provides
     fun provideCommentsRepository(
         networkService: NetworkService,
-        commentMapper: CommentMapper
+        commentsMapper: CommentsMapper
     ): CommentsRepository {
-        return NetworkCommentsRepository(networkService, commentMapper)
+        return NetworkCommentsRepository(networkService, commentsMapper)
     }
 
     @Provides
-    fun provideCommentMapper(): CommentMapper {
-        return CommentMapper()
+    fun provideCommentMapper(): CommentsMapper {
+        return CommentsMapper()
     }
 
 }

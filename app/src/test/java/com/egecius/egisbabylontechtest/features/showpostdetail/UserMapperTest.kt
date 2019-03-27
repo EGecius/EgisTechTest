@@ -9,7 +9,6 @@ class UserMapperTest {
     private var sut = UserMapper()
 
     private val userId = 1
-
     private val userName = "John Smith"
     private val userImage = "https://api.adorable.io/avatars/250/John_Smith.png"
 

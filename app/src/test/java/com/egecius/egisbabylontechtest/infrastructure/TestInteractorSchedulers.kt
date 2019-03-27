@@ -1,6 +1,5 @@
-package com.egecius.egisbabylontechtest
+package com.egecius.egisbabylontechtest.infrastructure
 
-import com.egecius.egisbabylontechtest.infrastructure.InteractorSchedulers
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 

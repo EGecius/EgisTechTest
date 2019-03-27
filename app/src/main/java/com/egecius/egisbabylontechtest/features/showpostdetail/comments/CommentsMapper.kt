@@ -1,6 +1,6 @@
 package com.egecius.egisbabylontechtest.features.showpostdetail.comments
 
-class CommentMapper {
+class CommentsMapper {
 
     fun toComments(commentsJson: List<CommentJson>): List<Comment> {
 
