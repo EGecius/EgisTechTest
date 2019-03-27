@@ -27,14 +27,14 @@
     <TextView
             android:id="@+id/userNameView"
             style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="User name"/>
 
     <TextView
             android:id="@+id/postBodyView"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/default_margin"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,10 +43,10 @@
     <TextView
             android:id="@+id/numberOfCommentsView"
             style="@style/TextAppearance.AppCompat.Body2"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/big_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Number of comments: 6"/>
+            tools:text="5 comments:"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/commentsRecyclerView"

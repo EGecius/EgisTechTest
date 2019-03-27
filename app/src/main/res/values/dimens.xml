@@ -10,4 +10,6 @@
     <dimen name="card_padding">8dp</dimen>
     <dimen name="card_title">22sp</dimen>
     <dimen name="padding_default">16dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="big_margin">24dp</dimen>
 </resources>
