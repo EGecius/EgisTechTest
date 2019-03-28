@@ -89,15 +89,18 @@ class PostDetailActivity : AppCompatActivity(), PostDetailActivityPresenter.View
 
     override fun showUser(user: User) {
         userNameView.text = user.name
+
+
         Picasso.get().load(user.image).into(userImageView, object : Callback {
-            override fun onError(p0: Exception?) {
+            override fun onError(e: Exception?) {
             }
 
             override fun onSuccess() {
                 val bitmap = userImageView.drawable.toBitmap()
-                val palette = Palette.Builder(bitmap).generate()
-                val backgroundColour = palette.lightMutedSwatch!!.rgb
-                parentLayout.setBackgroundColor(backgroundColour)
+                Palette.Builder(bitmap).generate {
+                    val backgroundColour = it?.lightMutedSwatch!!.rgb
+                    parentLayout.setBackgroundColor(backgroundColour)
+                }
             }
         })
     }
