@@ -17,6 +17,9 @@ class NetworkPostsRepository(
             .doOnEvent { list, _ ->
                 updateDatabase(list)
             }
+            .onErrorReturn {
+                postsDao.loadAllPosts()
+            }
     }
 
     private fun updateDatabase(list: List<Post>) {

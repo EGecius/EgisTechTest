@@ -6,7 +6,9 @@ import com.egecius.egisbabylontechtest.features.showpostlist.post.PostJson
 import com.egecius.egisbabylontechtest.features.showpostlist.post.PostMapper
 import com.egecius.egisbabylontechtest.features.showpostlist.post.persistency.PostsDao
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.given
+import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
 import org.junit.Before
@@ -47,6 +49,14 @@ class NetworkPostsRepositoryTest {
     )
     private val listPosts = listOf(post)
 
+    private val post2 = Post(
+        4,
+        "title 2",
+        "body 2",
+        12
+    )
+    private val listPostsCached = listOf(post2)
+
     @Before
     fun setUp() {
         sut = NetworkPostsRepository(networkService, PostMapper(), postsDao)
@@ -66,12 +76,40 @@ class NetworkPostsRepositoryTest {
     }
 
     @Test
-    fun `cashes fetched data to database`() {
+    fun `caches fetched data to persistence`() {
         givenNetworkServiceWillSucceed()
 
         sut.getPosts().subscribe()
 
         verify(postsDao).insertPost(post)
+    }
+
+    @Test
+    fun `uses cached persistence data, when network fetching fails`() {
+        givenThereIsCachedData()
+        givenNetworkServiceWillFail()
+
+        val testObserver = sut.getPosts().test()
+
+        testObserver.assertResult(listPostsCached)
+    }
+
+    private fun givenNetworkServiceWillFail() {
+        given(networkService.getPosts()).willReturn(Single.error(Exception()))
+    }
+
+    private fun givenThereIsCachedData() {
+        given(postsDao.loadAllPosts()).willReturn(listPostsCached)
+    }
+
+    @Test
+    fun `does not cache to persistence, when network fetching fails`() {
+        givenThereIsCachedData()
+        givenNetworkServiceWillFail()
+
+        sut.getPosts().subscribe()
+
+        verify(postsDao, never()).insertPost(any())
     }
 
 }
