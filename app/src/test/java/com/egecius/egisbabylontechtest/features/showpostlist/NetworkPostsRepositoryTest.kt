@@ -4,8 +4,10 @@ import com.egecius.egisbabylontechtest.features.showpostlist.post.NetworkPostsRe
 import com.egecius.egisbabylontechtest.features.showpostlist.post.Post
 import com.egecius.egisbabylontechtest.features.showpostlist.post.PostJson
 import com.egecius.egisbabylontechtest.features.showpostlist.post.PostMapper
+import com.egecius.egisbabylontechtest.features.showpostlist.post.persistency.PostsDao
 import com.egecius.egisbabylontechtest.infrastructure.NetworkService
 import com.nhaarman.mockitokotlin2.given
+import com.nhaarman.mockitokotlin2.verify
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -20,6 +22,8 @@ class NetworkPostsRepositoryTest {
 
     @Mock
     private lateinit var networkService: NetworkService
+    @Mock
+    private lateinit var postsDao: PostsDao
 
     private val userId = 1
     private val postId = 2
@@ -34,21 +38,18 @@ class NetworkPostsRepositoryTest {
             body
         )
     )
-    private val listPosts = listOf(
-        Post(
-            postId,
-            title,
-            body,
-            userId
-        )
+
+    private val post = Post(
+        postId,
+        title,
+        body,
+        userId
     )
+    private val listPosts = listOf(post)
 
     @Before
     fun setUp() {
-        sut = NetworkPostsRepository(
-            networkService,
-            PostMapper()
-        )
+        sut = NetworkPostsRepository(networkService, PostMapper(), postsDao)
     }
 
     @Test
@@ -62,6 +63,15 @@ class NetworkPostsRepositoryTest {
 
     private fun givenNetworkServiceWillSucceed() {
         given(networkService.getPosts()).willReturn(Single.just(listPostsJson))
+    }
+
+    @Test
+    fun `cashes fetched data to database`() {
+        givenNetworkServiceWillSucceed()
+
+        sut.getPosts().subscribe()
+
+        verify(postsDao).insertPost(post)
     }
 
 }
