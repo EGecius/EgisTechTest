@@ -68,4 +68,13 @@ class PostPostListActivityPresenterTest {
         verify(view, times(2)).showPosts(posts)
     }
 
+    @Test
+    fun `show error, when empty list returned`() {
+        given(getPostsInteractor.getPosts()).willReturn(Single.just(emptyList()))
+
+        sut.startPresenting(view)
+
+        verify(view).showError()
+    }
+
 }

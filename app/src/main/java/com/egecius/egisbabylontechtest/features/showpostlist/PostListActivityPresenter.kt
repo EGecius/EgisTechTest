@@ -22,12 +22,20 @@ class PostListActivityPresenter(
             .subscribeOn(schedulers.getExecutionsScheduler())
             .observeOn(schedulers.getPostExecutionScheduler())
             .subscribe({
-                view.showPosts(it)
+                handleSuccessResult(it)
             }, {
                 view.showError()
             })
 
         compositeDisposable.add(disposable)
+    }
+
+    private fun handleSuccessResult(it: List<Post>) {
+        if (it.isEmpty()) {
+            view.showError()
+        } else {
+            view.showPosts(it)
+        }
     }
 
     fun stopPresenting() {
